@@ -1,7 +1,7 @@
 #pragma once
-#include "VertexObject\VertexObject.h"
-#include "VertexObject\VertexBufferObjectWithSubData.h"
-#include "VertexObject\VertexArrayObject.h"
+#include "VertexObject/VertexObject.h"
+#include "VertexObject/VertexBufferObjectWithSubData.h"
+#include "VertexObject/VertexArrayObject.h"
 #include <map>
 #include <string>
 

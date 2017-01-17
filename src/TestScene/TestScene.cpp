@@ -1,30 +1,20 @@
 #include "TestScene.h"
-#include <android\log.h>
-#include "Node\ObjectNode.h"
-#include "Node\Node.h"
+#include "Node/ObjectNode.h"
 
-#include "Render\RenderObject.h"
-#include "Render\Model.h"
-#include "Utility\Source.h"
-#include "Utility\Quaternion.h"
 
-#include "Utility\Vector\Vector3.h"
-#include "Utility\WaveFrontLoad.h"
-#include "VertexObject\VertexBufferObjectWithSubData.h"
-#include "VertexObject\VertexArrayObject.h"
-#include "Utility\Shader.h"
+#include "Render/RenderObject.h"
+#include "Render/Model.h"
+#include "Utility/Source.h"
+#include "Utility/WaveFrontLoad.h"
+#include "VertexObject/VertexBufferObjectWithSubData.h"
+#include "VertexObject/VertexArrayObject.h"
+#include "Utility/Shader.h"
 
-#include "Utility\Camera.h"
+#include "Utility/Camera.h"
 
-#include "Utility\Texture.h"
-#include "Audio\AudioSource.h"
-#include "Audio\AudioManager.h"
-#include "Audio\AudioPlayer.h"
+#include "Utility/Texture.h"
 
-#include "math.h"
-#include "android\input.h"
-#include "Input\InputEvent.h"
-#include "Storage\Storage.h"
+#include "Storage/Storage.h"
 
 TestScene::TestScene(SmokeEngine* smokeEngine,Camera * camera) : SceneNode(smokeEngine,camera)
 {
@@ -41,9 +31,9 @@ void TestScene::Load()
 	SceneNode::Load();
 
 	if(!this->mSmokeEngine->mShaderSourceStorage->IsSourceUsed("PhongShading",GL_FRAGMENT_SHADER))
-		this->mSmokeEngine->mShaderSourceStorage->AppendSource("PhongShading",new Source("phongshading.fs",this->mSmokeEngine->mAssetManager));
+		this->mSmokeEngine->mShaderSourceStorage->AppendSource("PhongShading",new Source("assets/phongshading.fs"));
 	if(!this->mSmokeEngine->mShaderSourceStorage->IsSourceUsed("BasicVertex",GL_VERTEX_SHADER))
-		this->mSmokeEngine->mShaderSourceStorage->AppendSource("BasicVertex",new Source("basic.vs",this->mSmokeEngine->mAssetManager));
+		this->mSmokeEngine->mShaderSourceStorage->AppendSource("BasicVertex",new Source("assets/basic.vs"));
 	
 	if(!this->mSmokeEngine->mVertexBufferStorage->IsVertexArrayObjectExist("Teapot") || !this->mSmokeEngine->mVertexBufferStorage->IsVertexObjectWithSubDataExist("Teapot"))
 	{
@@ -53,11 +43,9 @@ void TestScene::Load()
 		this->mSmokeEngine->mVertexBufferStorage->AppendVertexObject("Teapot",lVertexArray);
 	}
 	if(!this->mSmokeEngine->mTextureStorage->IsTextureUsed("test-pattern.png"))
-	this->mSmokeEngine->mTextureStorage->AppendTexture( new Texture("test-pattern.png",this->mSmokeEngine->mSceneManager->mSmokeEngine->mAssetManager));
+	this->mSmokeEngine->mTextureStorage->AppendTexture( new Texture("assets/test-pattern.png"));
 
-	//if(!this->mSmokeEngine->mAudioSourceStorage->IsAudioSourceUsed("TestAudio"))
-	//this->mSmokeEngine->mAudioSourceStorage->AppendAudioSource("TestAudio",new AudioSource("W1_Level_01.ogg",this->mSmokeEngine->mAssetManager));
-	
+
 }
 
 void TestScene::UnLoad()
@@ -71,7 +59,6 @@ void TestScene::UnLoad()
 	this->mSmokeEngine->mVertexBufferStorage->DeleteVertexObjectWithSubData("Teapot");
 
 	this->mSmokeEngine->mTextureStorage->DeleteTexture("test-pattern.png");
-	//this->mSmokeEngine->mAudioSourceStorage->RemoveAudioSource("TestAudio");
 }
 
 void TestScene::InintalizeScene()
@@ -85,7 +72,6 @@ void TestScene::InintalizeScene()
 
 	_testObject->SetRenderObject(lmodel,true);
 
-	//this->mSmokeEngine->mAudioManager->PlayTrack( this->mSmokeEngine->mAudioSourceStorage->GetSource("TestAudio"));
 }
 
 void TestScene::Inintalize()

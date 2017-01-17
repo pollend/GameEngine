@@ -1,4 +1,4 @@
-#include "VertexObject\VertexArrayObject.h"
+#include "VertexObject/VertexArrayObject.h"
 #include <stdlib.h>
 #include "S_Debug.h"
 

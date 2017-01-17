@@ -1,8 +1,8 @@
-#include "Node\Node.h"
-#include "Utility\Matrix\MatrixStack.h"
-#include "Utility\Matrix\Matrix4x4.h"
-#include "Utility\Camera.h"
-#include "Node\SharedNodeInfo.h"
+#include "Node/Node.h"
+#include "Utility/Matrix/MatrixStack.h"
+#include "Utility/Matrix/Matrix4x4.h"
+#include "Utility/Camera.h"
+#include "Node/SharedNodeInfo.h"
 
 Node::Node(std::string ID)
 {

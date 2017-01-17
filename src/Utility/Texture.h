@@ -1,7 +1,7 @@
 #pragma once
 
 #include "string"
-#include <GLES2\gl2.h>
+#include <GL/glut.h>
 #include <stdlib.h>
 
 
@@ -20,7 +20,7 @@ private:
 	std::string _textureName;
 
 public:
-	Texture(const char * filename,AAssetManager* assetManager);
+	Texture(const char * path);
 	~Texture(void);
 
 	/** 

@@ -1,5 +1,5 @@
-#include "Storage\ShaderSourceStorage.h"
-#include <GLES2/gl2.h>
+#include "Storage/ShaderSourceStorage.h"
+#include <GL/glew.h>
 
 ShaderSourceStorage::ShaderSourceStorage(void)
 {

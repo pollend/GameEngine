@@ -1,17 +1,10 @@
-#include "Render\Model.h"
-#include "VertexObject\VertexArrayObject.h"
-#include "VertexObject\VertexBufferObjectWithSubData.h"
-#include "Utility\Source.h"
-#include "Utility\Texture.h"
-#include "Node\SceneNode.h"
-#include "Utility\Shader.h"
-#include "Utility\Matrix\Matrix4x4.h"
-#include "Utility\Shader.h"
-#include "Utility\Matrix\Matrix4x4.h"
-#include "VertexObject\VertexBufferObjectWithSubData.h"
-#include "VertexObject\VertexArrayObject.h"
+#include <Node/SceneNode.h>
+#include "Render/Model.h"
+#include "VertexObject/VertexArrayObject.h"
+#include "VertexObject/VertexBufferObjectWithSubData.h"
+#include "Utility/Source.h"
+#include "Utility/Shader.h"
 
-#include "S_Debug.h"
 
 Model::Model(SceneNode* sceneNode,VertexBufferObjectWithSubData* vertexBufferObject,VertexArrayObject* vertexArrayObject,Source* vertexSource, Source* Fragmentsource) : RenderObject(sceneNode)
 {

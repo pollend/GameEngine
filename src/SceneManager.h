@@ -2,6 +2,8 @@
 #include <string>
 #include <map>
 #include <list>
+#include <GL/glew.h>
+
 class SmokeEngine;
 class SceneNode;
 class SmokeEngine;

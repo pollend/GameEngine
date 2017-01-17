@@ -1,5 +1,5 @@
 #pragma once
-#include "Utility\Texture.h"
+#include "Utility/Texture.h"
 #include <map>
 #include <string>
 class TextureStorage

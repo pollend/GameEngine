@@ -2,7 +2,7 @@
 #include "Utility/Matrix/Matrix4x4.h"
 #include "Utility/Shader.h"
 #include "Utility/Source.h"
-#include <gles2/gl2.h>
+#include <GL/glew.h>
 #include "Node/SceneNode.h"
 #include "Utility/Matrix/Matrix4x4.h"
 #include "Utility/Vector/Vector2.h"

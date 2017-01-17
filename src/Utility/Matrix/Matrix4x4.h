@@ -1,7 +1,7 @@
 #pragma once
-#include "Utility\Quaternion.h"
-#include "Utility\Vector\Vector3.h"
-#include <GLES2\gl2.h>
+#include "Utility/Quaternion.h"
+#include "Utility/Vector/Vector3.h"
+#include <GLES2/gl2.h>
 
 class Matrix4x4 
 {

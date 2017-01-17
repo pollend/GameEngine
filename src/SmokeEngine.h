@@ -1,16 +1,10 @@
 #pragma once
-#include "Render\Renderer.h"
+#include "Render/Renderer.h"
 #include "SceneManager.h"
-#include "android\asset_manager.h"
 #include <time.h>
-
-#include <EGL/egl.h>
-#include <GLES/gl.h>
-
-#include <jni.h>
-#include <android/sensor.h>
-#include <android/log.h>
 #include <ctime>
+#include <GL/glew.h>
+
 class btDiscreteDynamicsWorld;
 class AAssetManager;
 class SceneManager;

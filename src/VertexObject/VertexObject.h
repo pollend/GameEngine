@@ -1,5 +1,5 @@
 #pragma once
-#include <gles2\gl2.h>
+#include <GL/glew.h>
 class VertexObject
 {
 protected:

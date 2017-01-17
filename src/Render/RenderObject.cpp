@@ -1,8 +1,8 @@
-#include "Render\RenderObject.h"
-#include "Utility\Shader.h"
-#include "Node\SceneNode.h"
-#include "Utility\Source.h"
-#include "Storage\ShaderSourceStorage.h"
+#include "Render/RenderObject.h"
+#include "Utility/Shader.h"
+#include "Node/SceneNode.h"
+#include "Utility/Source.h"
+#include "Storage/ShaderSourceStorage.h"
 
 RenderObject::RenderObject(SceneNode * sceneNode)
 {

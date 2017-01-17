@@ -1,6 +1,5 @@
 #pragma once
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
+#include <GL/glew.h>
 
 #define DEPTH_VERTEX_SHADER  "\
  uniform mat4 in_Transform; \

@@ -1,10 +1,10 @@
-#include "Utility\Shader.h"
-#include "Utility\Source.h"
-#include "Utility\Texture.h"
-#include "Utility\Vector\Vector2.h"
-#include "Utility\Vector\Vector3.h"
-#include "Utility\Vector\Vector4.h"
-#include "Utility\Matrix\Matrix4x4.h"
+#include "Utility/Shader.h"
+#include "Utility/Source.h"
+#include "Utility/Texture.h"
+#include "Utility/Vector/Vector2.h"
+#include "Utility/Vector/Vector3.h"
+#include "Utility/Vector/Vector4.h"
+#include "Utility/Matrix/Matrix4x4.h"
 
 Shader::Shader(void)
 {

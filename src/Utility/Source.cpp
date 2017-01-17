@@ -1,6 +1,8 @@
-#include "Utility\Source.h"
-#include <android\asset_manager.h>
-#include "S_Debug.h"
+#include "Source.h"
+#include <string>
+#include <fstream>
+#include <cstring>
+#include <boost/log/trivial.hpp>
 
 Source::Source(const char* source,GLenum Type)
 {
@@ -9,42 +11,45 @@ Source::Source(const char* source,GLenum Type)
 	_compile(source);
 
 }
-Source::Source(const char* file,AAssetManager* assetManager)
+Source::Source(const char* path)
 {
-	INFO("loading shader file: %s",file);
+    BOOST_LOG_TRIVIAL(trace) << "loading shader file:" <<  path;
 
-	if(file[ strlen(file) -1] == 's' && file[ strlen(file) -2] == 'v')
-	{
-		_type = GL_VERTEX_SHADER;
-		_source = glCreateShader(GL_VERTEX_SHADER);
-	}
-	else if(file[ strlen(file) -2] == 'f' && file[ strlen(file) -1] == 's')
-	{
-		_type = GL_FRAGMENT_SHADER;
-		_source = glCreateShader(GL_FRAGMENT_SHADER);
-	}
-	else
-	{
-		ERROR("Invalid shader file type: %s",file);
-	}
+    if(path[ strlen(path) -1] == 's' && path[ strlen(path) -2] == 'v')
+    {
+        _type = GL_VERTEX_SHADER;
+        _source = glCreateShader(GL_VERTEX_SHADER);
+    }
+    else if(path[ strlen(path) -2] == 'f' && path[ strlen(path) -1] == 's')
+    {
+        _type = GL_FRAGMENT_SHADER;
+        _source = glCreateShader(GL_FRAGMENT_SHADER);
+    }
+    else
+    {
+        BOOST_LOG_TRIVIAL(error) << "invalid shader file type:" <<  path;
 
-	AAsset* lasset = AAssetManager_open(assetManager,file,AASSET_MODE_UNKNOWN);
+    }
 
-	if(NULL == lasset)
-	{
-		ERROR("Failed to open: %s", file);
-	}
 
-	int lsize = AAsset_getLength(lasset);
+    std::ifstream file(path, std::ios::binary | std::ios::ate);
+    std::streamsize size = file.tellg();
+    file.seekg(0, std::ios::beg);
 
-	char * ldata = (char*)calloc(lsize +1, sizeof(char));
-	AAsset_read(lasset,ldata,lsize);
-	ldata[lsize] = 0;
-	if(!_compile(ldata))
-	{
-		ERROR("Failed to compile shader: %s",file);
-	}
-	free(ldata);
+    char* buffer = new char[size]();
+    if (!file.read(buffer, size))
+    {
+        BOOST_LOG_TRIVIAL(error) << "Failed to open:" << path;
+        file.close();
+        delete(buffer);
+        return;
+    }
+
+    if(!_compile(buffer))
+    {
+        BOOST_LOG_TRIVIAL(error) << "Failed to compile shader: " << path;
+    }
+    delete(buffer);
 
 }
 
@@ -73,10 +78,8 @@ bool Source::_compile(const char* source)
 				char* lbuffer = (char*) malloc(linfoLen);
 				if (lbuffer) {
 					glGetShaderInfoLog(_source, linfoLen, NULL, lbuffer);
-					ERROR("could not compile shader");
-					ERROR(source);
-					ERROR("\n");
-					ERROR(lbuffer);
+                    BOOST_LOG_TRIVIAL(error) << "could not compile shader: " << source;
+                    BOOST_LOG_TRIVIAL(error) << lbuffer;
 					free(lbuffer);
 				}
 				glDeleteShader(_source);

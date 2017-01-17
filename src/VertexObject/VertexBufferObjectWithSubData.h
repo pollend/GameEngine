@@ -1,13 +1,12 @@
 #pragma once
-#include <gles2\gl2.h>
+#include <GL/glew.h>
 #include "VertexObject.h"
-#include "Utility\Vector\Vector2.h"
-#include "Utility\Vector\Vector3.h"
-#include "Utility\Vector\Vector4.h"
+#include "Utility/Vector/Vector2.h"
+#include "Utility/Vector/Vector3.h"
+#include "Utility/Vector/Vector4.h"
 #include <vector>
 #include "VertexObject.h"
 #include <string>
-#include <android\log.h>
 
 
 

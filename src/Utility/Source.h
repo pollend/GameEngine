@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
+#include <GL/glew.h>
 
 
 class AAssetManager;
@@ -23,7 +22,7 @@ public:
 	* ending is either .vs or .fs
 	*.vs is vertex shader and .fs is fragment shader
 	**/
-	Source(const char* file,AAssetManager* assetManager);
+	Source(const char* path);
 	//returns the shader type - GL_VERTEX_SHADER & GL_FRAGMENT_SHADER
 	GLenum GetType();
 	/**

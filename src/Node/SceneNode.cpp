@@ -1,15 +1,8 @@
-#include "Node\SceneNode.h"
-#include "Node\Node.h"
-#include "Utility\Camera.h"
-#include "Storage\ShaderSourceStorage.h"
-#include "Storage\VertexBufferStorage.h"
-#include "Storage\ViewStorage.h"
-#include "Storage\VertexBufferStorage.h"
-#include "Storage\TextureStorage.h"
-#include "Storage\ShaderSourceStorage.h"
-#include "SceneManager.h"
-#include "SmokeEngine.h"
-#include "Node\SharedNodeInfo.h"
+#include "Node/SceneNode.h"
+#include "Utility/Camera.h"
+#include "Storage/VertexBufferStorage.h"
+#include "Storage/ViewStorage.h"
+#include "Node/SharedNodeInfo.h"
 
 
 SceneNode::RootNode::RootNode(SceneNode * sceneNode,SharedNodeInfo* sharedNodeInfo, std::string ID) : Node(ID) 

@@ -1,5 +1,5 @@
-#include "Storage\TextureStorage.h"
-#include "Utility\Texture.h"
+#include "Storage/TextureStorage.h"
+#include "Utility/Texture.h"
 
 TextureStorage::TextureStorage()
 {

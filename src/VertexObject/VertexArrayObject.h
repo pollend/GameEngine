@@ -1,6 +1,6 @@
 #pragma once
 #include "VertexObject.h"
-#include <gles2\gl2.h>
+#include <GL/glew.h>
 
 class VertexArrayObject : public VertexObject
 {

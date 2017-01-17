@@ -1,5 +1,5 @@
-#include "Utility\Quaternion.h"
-#include "Utility\Matrix\Matrix4x4.h"
+#include "Utility/Quaternion.h"
+#include "Utility/Matrix/Matrix4x4.h"
 #include <math.h>
 Quaternion::Quaternion(void)
 {

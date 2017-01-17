@@ -1,17 +1,12 @@
 #include "Utility/WaveFrontLoad.h"
-#include <android/asset_manager.h>
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
-#include <android/log.h>
+#include <GL/glew.h>
 #include "Utility/Vector/Vector3.h"
 #include "Utility/Vector/Vector2.h"
 #include <stdlib.h>
-#include <vector>
 #include "VertexObject/VertexArrayObject.h"
 #include "VertexObject/VertexBufferObjectWithSubData.h"
-#include <string>
 #include <boost/algorithm/string.hpp>
-#include "S_Debug.h"
+
 
 std::vector<float> WaveFrontLoad::_splitFloat(std::string str,std::string character)
 {

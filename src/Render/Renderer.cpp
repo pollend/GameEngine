@@ -1,9 +1,7 @@
-#include "Render\Renderer.h"
-#include "Node\SceneNode.h"
-#include <list>
-#include "Node\Node.h"
-#include "Node\ObjectNode.h"
-#include "Utility\Camera.h"
+#include "Render/Renderer.h"
+#include "Node/SceneNode.h"
+#include "Node/ObjectNode.h"
+#include "Utility/Camera.h"
 
 
 Renderer::Renderer(void)
