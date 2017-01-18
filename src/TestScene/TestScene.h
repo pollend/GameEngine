@@ -1,9 +1,9 @@
 #pragma once
+
+#include <Node/ObjectNode.h>
 #include "Node/SceneNode.h"
 
-class Node;
-class ObjectNode;
-class AInputQueue;
+
 class TestScene : public SceneNode
 {
 private:

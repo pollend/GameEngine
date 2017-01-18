@@ -1,11 +1,8 @@
 #include "Utility/WaveFrontLoad.h"
-#include <GL/glew.h>
-#include "Utility/Vector/Vector3.h"
-#include "Utility/Vector/Vector2.h"
 #include <stdlib.h>
-#include "VertexObject/VertexArrayObject.h"
-#include "VertexObject/VertexBufferObjectWithSubData.h"
 #include <boost/algorithm/string.hpp>
+#include <fstream>
+#include <boost/log/trivial.hpp>
 
 
 std::vector<float> WaveFrontLoad::_splitFloat(std::string str,std::string character)
@@ -54,7 +51,7 @@ std::vector<int> WaveFrontLoad::_splitInt(std::string str,std::string character)
 /*
 *loads the wavefront object and outputs a vertexArray object and adds the data to the vertex buffer object
 */
-VertexArrayObject* WaveFrontLoad::Load(const char* file,AAssetManager* assetManager, VertexBufferObjectWithSubData * vertexBufferObjectWithSubData)
+VertexArrayObject* WaveFrontLoad::Load(const char* path, VertexBufferObjectWithSubData * vertexBufferObjectWithSubData)
 {
 	std::vector<GLushort> lindecies = std::vector<GLushort>();
 	std::vector<Vector3> lverticies = std::vector<Vector3>();
@@ -65,19 +62,21 @@ VertexArrayObject* WaveFrontLoad::Load(const char* file,AAssetManager* assetMana
 	Vector2 *lfinalTexCoords = NULL;
 	Vector3 *lfinalNormals = NULL;
 
-	AAsset* lasset = AAssetManager_open(assetManager,file,AASSET_MODE_UNKNOWN);
+	std::ifstream file(path, std::ios::binary | std::ios::ate);
+	std::streamsize lsize = file.tellg();
+	file.seekg(0, std::ios::beg);
 
-	if(NULL == lasset)
+	char* lbuffer = new char[lsize]();
+
+	if (!file.read(lbuffer, lsize))
 	{
-		 __android_log_print(ANDROID_LOG_INFO,"SMOKE_ENGINE",(char*)("Failed to open: " + std::string(file)).c_str());
+		BOOST_LOG_TRIVIAL(error) << "Failed to open:" << path;
+		file.close();
+		delete(lbuffer);
+		return NULL;
 	}
-	
 
-	long lsize = AAsset_getLength(lasset);
 
-	char* lbuffer = (char*) (char*)calloc(lsize +1, sizeof(char));
-	lbuffer[lsize] = 0;
-	AAsset_read(lasset,lbuffer,lsize);
 
 	int index = 0;
 	while(index  < lsize)

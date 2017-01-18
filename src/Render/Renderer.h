@@ -1,7 +1,12 @@
-#pragma once
-#include "Utility/Matrix/MatrixStack.h"
-class Node;
+#ifndef _RENDERER_H_
+#define _RENDERER_H_
+
 class SceneNode;
+
+#include <Node/Node.h>
+#include <Node/SceneNode.h>
+#include "Utility/Matrix/MatrixStack.h"
+
 class Renderer
 {
 private:
@@ -24,3 +29,4 @@ public:
 	~Renderer(void);
 };
 
+#endif

@@ -1,14 +1,11 @@
-#pragma once
+#ifndef _MODEL_H_
+#define _MODEL_H_
+
+#include <VertexObject/VertexBufferObjectWithSubData.h>
+#include <VertexObject/VertexArrayObject.h>
 #include "Render/RenderObject.h"
 
-class Matrix4x4;
-class Shader;
-class VertexBufferObjectWithSubData;
-class VertexArrayObject;
-class Source;
-class SceneNode;
-class Texture;
-class Shader;
+
 class Model :public RenderObject
 {
 private:
@@ -35,3 +32,4 @@ public:
 	virtual void DepthDraw(Matrix4x4 transform, Matrix4x4 view);
 };
 
+#endif

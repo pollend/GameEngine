@@ -1,8 +1,5 @@
-#include "Node\AttachmentNode\AttachmentNode.h"
-#include "SmokeEngine.h"
-#include "Node\SharedNodeInfo.h"
-#include <map>
-#include <string>
+#include "Node/AttachmentNode/AttachmentNode.h"
+#include "Node/SharedNodeInfo.h"
 
 
 AttachmentNodeCallback::AttachmentNodeCallback(){

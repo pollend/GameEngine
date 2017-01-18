@@ -1,8 +1,5 @@
 #include "Node/SceneNode.h"
-#include "Utility/Camera.h"
-#include "Storage/VertexBufferStorage.h"
-#include "Storage/ViewStorage.h"
-#include "Node/SharedNodeInfo.h"
+#include "SharedNodeInfo.h"
 
 
 SceneNode::RootNode::RootNode(SceneNode * sceneNode,SharedNodeInfo* sharedNodeInfo, std::string ID) : Node(ID) 

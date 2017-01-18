@@ -1,20 +1,14 @@
-#pragma once
-#include "Render/Renderer.h"
-#include "SceneManager.h"
+#ifndef _SMOKEENGINE_H
+#define _SMOKEENGINE_H
+
+#include <GL/glew.h>
 #include <time.h>
 #include <ctime>
-#include <GL/glew.h>
-
-class btDiscreteDynamicsWorld;
-class AAssetManager;
-class SceneManager;
-class ShaderSourceStorage;
-class TextureStorage;
-class VertexBufferStorage;
-class AudioSourceStorage;
-class AudioManager;
-
-
+#include <Storage/ShaderSourceStorage.h>
+#include <Storage/TextureStorage.h>
+#include <Storage/VertexBufferStorage.h>
+#include <Render/Renderer.h>
+#include "SceneManager.h"
 
 class SmokeEngine
 {
@@ -26,20 +20,17 @@ public:
 	int * Width;
 	int * Height;
 
-	AudioSourceStorage * mAudioSourceStorage;
 	ShaderSourceStorage * mShaderSourceStorage;
 	TextureStorage * mTextureStorage;
 	VertexBufferStorage * mVertexBufferStorage;
 
-	AudioManager * mAudioManager;
 	SceneManager * mSceneManager;
-	AAssetManager * mAssetManager;
 	Renderer* mRenderer;
 	
 	void Step();
 	void Draw();
 
-	SmokeEngine(AAssetManager * assetManager);
+	SmokeEngine();
 	~SmokeEngine(void);
 };
-
+#endif

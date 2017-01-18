@@ -1,20 +1,8 @@
+#include <Render/Sprite.h>
 #include "TestScene.h"
-#include "Node/ObjectNode.h"
-
-
-#include "Render/RenderObject.h"
 #include "Render/Model.h"
-#include "Utility/Source.h"
 #include "Utility/WaveFrontLoad.h"
-#include "VertexObject/VertexBufferObjectWithSubData.h"
-#include "VertexObject/VertexArrayObject.h"
-#include "Utility/Shader.h"
-
-#include "Utility/Camera.h"
-
-#include "Utility/Texture.h"
-
-#include "Storage/Storage.h"
+#include "SmokeEngine.h"
 
 TestScene::TestScene(SmokeEngine* smokeEngine,Camera * camera) : SceneNode(smokeEngine,camera)
 {
@@ -38,11 +26,13 @@ void TestScene::Load()
 	if(!this->mSmokeEngine->mVertexBufferStorage->IsVertexArrayObjectExist("Teapot") || !this->mSmokeEngine->mVertexBufferStorage->IsVertexObjectWithSubDataExist("Teapot"))
 	{
 		VertexBufferObjectWithSubData * lsubData = new VertexBufferObjectWithSubData();
-		VertexArrayObject * lVertexArray = WaveFrontLoad::Load("Teapot.wobj",this->mSmokeEngine->mAssetManager,lsubData);
+		VertexArrayObject * lVertexArray = WaveFrontLoad::Load("assets/Teapot.obj",lsubData);
 		this->mSmokeEngine->mVertexBufferStorage->AppendVertexObject("Teapot",lsubData);
 		this->mSmokeEngine->mVertexBufferStorage->AppendVertexObject("Teapot",lVertexArray);
 	}
-	if(!this->mSmokeEngine->mTextureStorage->IsTextureUsed("test-pattern.png"))
+
+
+	if(!this->mSmokeEngine->mTextureStorage->IsTextureUsed("assets/test-pattern.png"))
 	this->mSmokeEngine->mTextureStorage->AppendTexture( new Texture("assets/test-pattern.png"));
 
 
@@ -68,9 +58,11 @@ void TestScene::InintalizeScene()
 		this->mSmokeEngine->mVertexBufferStorage->GetVertexArryObject("Teapot"),
 		this->mSmokeEngine->mShaderSourceStorage->GetSource("BasicVertex",GL_VERTEX_SHADER) ,
 		this->mSmokeEngine->mShaderSourceStorage->GetSource("PhongShading",GL_FRAGMENT_SHADER));
-	lmodel->mShader->SetTexture("in_BaseImage",this->mSmokeEngine->mTextureStorage->GetTexture("test-pattern.png"),0);
+	lmodel->mShader->SetTexture("in_BaseImage",this->mSmokeEngine->mTextureStorage->GetTexture("assets/test-pattern.png"),0);
 
-	_testObject->SetRenderObject(lmodel,true);
+	Sprite* sp = new Sprite(this,this->mSmokeEngine->mTextureStorage->GetTexture("assets/test-pattern.png"));
+
+	_testObject->SetRenderObject(sp,true);
 
 }
 
@@ -81,7 +73,7 @@ void TestScene::Inintalize()
 	_testObject = new ObjectNode("test");
 	this->mRootSceneNode->AppendNode(_testObject);
 	this->mRootSceneNode->AppendNode(_lightNode);
-	_testObject->Position = Vector3(0,-3,-30);
+	_testObject->Position = Vector3(0,0,-3);
 
 	x = 0;
 }
@@ -97,7 +89,6 @@ void TestScene::Update(float deltaT)
 	
 	_testObject->Rotation = Quaternion(x,3.14f,0);
 
-	
 	 //__android_log_print(ANDROID_LOG_INFO,"SMOKE_ENGINE","DELTA: \n");
 }
 

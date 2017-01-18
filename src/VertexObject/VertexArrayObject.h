@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _VERTEX_ARRAY_OBJECT_H_
+#define _VERTEX_ARRAY_OBJECT_H_
+
 #include "VertexObject.h"
 #include <GL/glew.h>
 
@@ -27,3 +29,4 @@ public:
 	int GetNumberOfIndecies();
 };
 
+#endif

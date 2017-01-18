@@ -1,6 +1,7 @@
-#pragma once
-#include "Utility/Vector/Vector3.h"
+#ifndef _BOUNDED_BOX_H_
+#define _BOUNDED_BOX_H_
 
+#include "Utility/Vector/Vector3.h"
 
 class BoundedBox
 {
@@ -25,3 +26,5 @@ public:
 	bool IsBoundBoxContainPoint(Vector3 point);
 };
 
+
+#endif

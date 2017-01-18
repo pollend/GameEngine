@@ -1,9 +1,5 @@
 #include <Node/SceneNode.h>
 #include "Render/Model.h"
-#include "VertexObject/VertexArrayObject.h"
-#include "VertexObject/VertexBufferObjectWithSubData.h"
-#include "Utility/Source.h"
-#include "Utility/Shader.h"
 
 
 Model::Model(SceneNode* sceneNode,VertexBufferObjectWithSubData* vertexBufferObject,VertexArrayObject* vertexArrayObject,Source* vertexSource, Source* Fragmentsource) : RenderObject(sceneNode)

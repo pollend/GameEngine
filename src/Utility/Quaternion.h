@@ -1,5 +1,8 @@
-#pragma once
-class Matrix4x4;
+#ifndef _QUATERNION_H_
+#define _QUATERNION_H_
+
+#include <Utility/Matrix/Matrix4x4.h>
+
 class Quaternion
 {
 private:
@@ -28,3 +31,5 @@ public:
 	Matrix4x4 ConvertToMatrix();
 };
 
+
+#endif

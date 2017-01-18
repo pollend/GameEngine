@@ -1,4 +1,7 @@
-#pragma once
+
+#ifndef _Sprite_H_
+#define _Sprite_H_
+
 #include "Render/RenderObject.h"
 #define SPRITE_VERTICIES_SIZE 12
 #define SPRITE_VERTICIES {0,0,0, 1,0,0, 0,1,0, 1,1,0 }
@@ -13,7 +16,7 @@ uniform mat4 in_Transform; \
 uniform mat4 in_View; \
 uniform vec2 in_Clipping_Position; \
 uniform vec2 in_Clipping_Size; \
-varying mediump vec2 p_TexCoords; \
+varying vec2 p_TexCoords; \
 void main(void)\
 { \
 	gl_Position =in_View *  in_Transform * vec4(in_Verts,1.0); \
@@ -35,21 +38,17 @@ void main(void)\
 	} \
 }"
 #define SPRITE_FRAGMENT_SHADER "\
-varying mediump vec2 p_TexCoords; \
-uniform sampler2D in_BaseImage\
+varying vec2 p_TexCoords; \
+uniform sampler2D in_BaseImage;\
 \
 void main()\
 {\
-gl_gragColor = texture2d(in_BaseImage,p_TexCoords);\
+gl_FragColor = texture2D(in_BaseImage,p_TexCoords);\
 }"
 #define SPRITE "SMOKE_SPRITE"
-class Vector2;
-class Matrix4x4;
-class SceneNode;
-class VertexBufferObjectWithSubData;
+
 class VertexArrayObject;
-class Source;
-class Texture;
+class VertexBufferObjectWithSubData;
 class Sprite : public RenderObject
 {
 private:
@@ -80,4 +79,6 @@ public:
 	virtual void DepthDraw(Matrix4x4 transform, Matrix4x4 view);
 
 };
+
+#endif
 

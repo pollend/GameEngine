@@ -1,4 +1,7 @@
-#pragma once
+#ifndef _NODE_H_
+#define _NODE_H_
+
+
 #include <list>
 #include <map>
 #include <string>
@@ -8,7 +11,7 @@
 
 class SharedNodeInfo;
 class Camera;
-class SceneNode; 
+class SceneNode;
 class Node
 {
 	private:
@@ -93,4 +96,6 @@ class Node
 		 **/
 		virtual void Update();
 };
+
+#endif
 

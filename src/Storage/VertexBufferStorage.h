@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _VERTEX_BUFFER_STORAGE_H_
+#define _VERTEX_BUFFER_STORAGE_H_
+
 #include "VertexObject/VertexObject.h"
 #include "VertexObject/VertexBufferObjectWithSubData.h"
 #include "VertexObject/VertexArrayObject.h"
@@ -54,3 +56,4 @@ public:
 	void DeleteVertexArryObject(std::string id);
 };
 
+#endif

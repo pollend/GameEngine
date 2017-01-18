@@ -1,9 +1,9 @@
-#pragma once
-#include "Node/Node.h"
-class SmokeEngine;
-class btGhostObject;
-class ObjectNode;
+#ifndef _ATTACHMENT_NODE_H_
+#define _ATTACHMENT_NODE_H_
 
+#include <SmokeEngine.h>
+#include <Node/ObjectNode.h>
+#include "Node/Node.h"
 
 class AttachmentNode : public Node
 {
@@ -41,3 +41,4 @@ class AttachmentNodeCallback{
 		virtual void Callback(ObjectNode* objectNode, std::list<AttachmentNode*> attachmentNodes);
 };
 
+#endif

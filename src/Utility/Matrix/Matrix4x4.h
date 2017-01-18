@@ -1,7 +1,8 @@
-#pragma once
 #include "Utility/Quaternion.h"
 #include "Utility/Vector/Vector3.h"
-#include <GLES2/gl2.h>
+
+#ifndef _MATRIX_H_
+#define _MATRIX_H_
 
 class Matrix4x4 
 {
@@ -55,3 +56,5 @@ class Matrix4x4
 		Matrix4x4(float m11, float m21, float m31, float m41, float m12, float m22, float m32, float m42,float m13, float m23, float m33, float m43,float m14, float m24, float m34, float m44);
 		~Matrix4x4(void);
 	};
+
+#endif

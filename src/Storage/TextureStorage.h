@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _TEXTURE_STORAGE_H_
+#define _TEXTURE_STORAGE_H_
+
 #include "Utility/Texture.h"
 #include <map>
 #include <string>
@@ -31,3 +33,4 @@ public:
 	Texture* GetTexture(std::string id);
 };
 
+#endif

@@ -1,4 +1,3 @@
-#pragma once
 #include <GL/glew.h>
 #include "VertexObject.h"
 #include "Utility/Vector/Vector2.h"
@@ -9,6 +8,8 @@
 #include <string>
 
 
+#ifndef _VERTEX_BUFFER_OBJECT_WITH_SUB_DATA_H_
+#define _VERTEX_BUFFER_OBJECT_WITH_SUB_DATA_H_
 
 #define VERTEX "VERTEX"
 #define NORMALS "NORMALS"
@@ -102,3 +103,4 @@ public:
 	virtual void Bind();
 };
 
+#endif

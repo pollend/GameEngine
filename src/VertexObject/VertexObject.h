@@ -1,5 +1,8 @@
-#pragma once
 #include <GL/glew.h>
+
+#ifndef _VERTEX_OBJECT_H
+#define _VERTEX_OBJECT_H
+
 class VertexObject
 {
 protected:
@@ -12,3 +15,5 @@ public:
 	virtual void Bind() = 0;
 
 };
+
+#endif

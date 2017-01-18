@@ -1,15 +1,13 @@
-#pragma once
-#include "Node.h"
-#include "SmokeEngine.h"
+#ifndef _SCENE_NODE_H_
+#define _SCENE_NODE_H_
 
-class SceneManager;
-class ViewStorage;
-class Camera;
-class SmokeEngine;
-class SceneManager;
-class AttachmentNode;
+#include <Storage/ViewStorage.h>
+#include <Utility/Camera.h>
+#include "InputEvent.h"
+
+class Node;
 class SharedNodeInfo;
-class AInputQueue;
+class SmokeEngine;
 class SceneNode
 {
 private:
@@ -49,4 +47,6 @@ public:
 	SceneNode( SmokeEngine* smokeEngine,Camera * camera);
 	~SceneNode(void);
 };
+
+#endif
 

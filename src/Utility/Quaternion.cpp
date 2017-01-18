@@ -32,11 +32,10 @@ Quaternion::~Quaternion(void)
 }
 
 
-Matrix4x4 Quaternion::ConvertToMatrix()
-{
+Matrix4x4 Quaternion::ConvertToMatrix() {
 	return Matrix4x4(
-		1-(2*this->Y * this->Y)-(2*this->Z * this->Z),(2 * this->X * this->Y)+(2*this->W * this->Z),(2*this->X*this->Z)-(2*this->W*this->Y),0,
-		(2*this->X*this->Y)-(2*this->W*this->Z),1-(2*this->X*this->X)-(2*this->Z*this->Z),(2*this->Y*this->Z)+(2*this->W*this->X),0,
-		(2*this->X*this->Z)+(2*this->W*this->Y),(2*this->Y*this->Z)-(2*this->W*this->X),1-(2*this->X*this->X)-(2*this->Y*this->Y),0,
-		0,0,0,1.0f);
+			1-(2*this->Y * this->Y)-(2*this->Z * this->Z),(2 * this->X * this->Y)+(2*this->W * this->Z),(2*this->X*this->Z)-(2*this->W*this->Y),0,
+			(2*this->X*this->Y)-(2*this->W*this->Z),1-(2*this->X*this->X)-(2*this->Z*this->Z),(2*this->Y*this->Z)+(2*this->W*this->X),0,
+			(2*this->X*this->Z)+(2*this->W*this->Y),(2*this->Y*this->Z)-(2*this->W*this->X),1-(2*this->X*this->X)-(2*this->Y*this->Y),0,
+			0,0,0,1.0f);
 }

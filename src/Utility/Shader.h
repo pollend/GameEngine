@@ -1,14 +1,17 @@
-#pragma once
-#include <GLES2/gl2.h>
+#ifndef _SHADER_H_
+#define _SHADER_H_
+
+
+#include <GL/glew.h>
 #include <map>
 #include <string>
+#include <Utility/Vector/Vector2.h>
+#include <Utility/Vector/Vector3.h>
+#include <Utility/Vector/Vector4.h>
+#include <Utility/Matrix/Matrix4x4.h>
+#include "Source.h"
+#include "Texture.h"
 
-class Matrix4x4;
-class Vector4;
-class Vector3;
-class Vector2;
-class Source;
-class Texture;
 class Shader
 {
 private:
@@ -50,3 +53,5 @@ public:
 
 	void SetTexture(const GLchar* UniformID,Texture* texture,int index);
 };
+
+#endif

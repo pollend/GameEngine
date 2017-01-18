@@ -1,4 +1,4 @@
- #include "Storage\VertexBufferStorage.h"
+ #include "Storage/VertexBufferStorage.h"
 
 VertexBufferStorage::VertexBufferStorage(void)
 {

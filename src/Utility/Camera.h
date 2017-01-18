@@ -1,4 +1,7 @@
-#pragma once
+#ifndef _CAMERA_H_
+#define _CAMERA_H_
+
+#include <Node/Node.h>
 #include "Utility/Matrix/Matrix4x4.h"
 #include "Utility/Vector/Vector3.h"
 #include "Utility/Quaternion.h"
@@ -34,3 +37,4 @@ public:
 	Matrix4x4 GetViewMatrix();
 };
 
+#endif

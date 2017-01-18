@@ -1,16 +1,7 @@
 #include "Render/Sprite.h"
-#include "Utility/Matrix/Matrix4x4.h"
-#include "Utility/Shader.h"
-#include "Utility/Source.h"
-#include <GL/glew.h>
-#include "Node/SceneNode.h"
-#include "Utility/Matrix/Matrix4x4.h"
-#include "Utility/Vector/Vector2.h"
 #include "VertexObject/VertexArrayObject.h"
 #include "VertexObject/VertexBufferObjectWithSubData.h"
-#include "Storage/VertexBufferStorage.h"
-#include "Storage/ShaderSourceStorage.h"
-#include "VertexObject/VertexBufferObjectWithSubData.h"
+#include "SmokeEngine.h"
 
 Sprite::Sprite(SceneNode * sceneNode,Source * fragmentShader) : RenderObject(sceneNode)
 {

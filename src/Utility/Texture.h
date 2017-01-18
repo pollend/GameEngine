@@ -1,11 +1,10 @@
-#pragma once
+#ifndef _TEXTURE_H_
+#define _TEXTURE_H_
 
 #include "string"
 #include <GL/glut.h>
 #include <stdlib.h>
 
-
-class AAssetManager;
 class Texture
 {
 private:
@@ -51,4 +50,6 @@ public:
 	float HeightToWidthRatio();
 	
 };
+
+#endif
 

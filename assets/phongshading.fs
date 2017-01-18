@@ -12,6 +12,7 @@ varying vec3 p_camPosition;
 
 void main()
 {
+
 	vec3 llight = (in_light * vec4(0.0,0.0,0.0,1.0)).xyz;
 	vec3 lhalfangle = normalize((p_camPosition + llight)/length(p_camPosition + llight));
 

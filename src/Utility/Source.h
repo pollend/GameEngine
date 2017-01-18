@@ -1,9 +1,9 @@
-#pragma once
+#ifndef _SOURCE_H_
+#define _SOURCE_H_
+
 #include <string>
 #include <GL/glew.h>
 
-
-class AAssetManager;
 class Source
 {
 private:
@@ -32,3 +32,4 @@ public:
 	~Source(void);
 };
 
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _MATRIX_STACK_H_
+#define _MATRIX_STACK_H_
+
 #include <list>
 
 class Matrix4x4;
@@ -33,3 +35,5 @@ public:
 	Matrix4x4 GetReverseTransformMatrix();
 
 };
+
+#endif

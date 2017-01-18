@@ -3,6 +3,7 @@
 #include "Node/SceneNode.h"
 #include "Utility/Source.h"
 #include "Storage/ShaderSourceStorage.h"
+#include "SmokeEngine.h"
 
 RenderObject::RenderObject(SceneNode * sceneNode)
 {

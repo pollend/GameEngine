@@ -1,4 +1,4 @@
-#include "VertexObject\VertexObject.h"
+#include "VertexObject/VertexObject.h"
 
 VertexObject::VertexObject(void)
 {

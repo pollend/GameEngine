@@ -1,7 +1,10 @@
-#pragma once
+#ifndef _VIEW_STORAGE_H_
+#define _VIEW_STORAGE_H_
+
 #include <map>
 #include "Utility/Camera.h"
 #include <string>
+
 class ViewStorage
 {
 private:
@@ -26,4 +29,6 @@ public:
 	Camera * GetCamera(std::string id);
 
 };
+
+#endif
 

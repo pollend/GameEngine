@@ -1,8 +1,5 @@
 #include "SceneManager.h"
-#include "Node\SceneNode.h"
-#include "SmokeEngine.h"
-#include "egl\egl.h"
-#include "egl\eglext.h"
+#include "Node/SceneNode.h"
 
 SceneManager::SceneManager(SmokeEngine* smokeEngine)
 {

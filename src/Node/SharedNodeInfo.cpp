@@ -1,6 +1,4 @@
 #include "Node/SharedNodeInfo.h"
-#include "Node/Node.h"
-#include "Node/AttachmentNode/AttachmentNode.h"
 
 SharedNodeInfo::SharedNodeInfo(void)
 {

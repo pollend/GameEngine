@@ -1,16 +1,14 @@
-#pragma once
+#ifndef _SceneManager_H_
+#define _SceneManager_H_
+
+#include <GL/glew.h>
 #include <string>
 #include <map>
 #include <list>
-#include <GL/glew.h>
 
 class SmokeEngine;
-class SceneNode;
-class SmokeEngine;
-class AAssetManager;
-class AInputQueue;
-class AInputEvent;
 class InputEvent;
+class SceneNode;
 class SceneManager
 {
 	private:
@@ -65,3 +63,4 @@ class SceneManager
 		~SceneManager(void);
 };
 
+#endif

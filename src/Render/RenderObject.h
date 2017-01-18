@@ -1,5 +1,10 @@
-#pragma once
+#ifndef _RENDER_OBJECT_H
+#define _RENDER_OBJECT_H
+
 #include <GL/glew.h>
+#include <Utility/Matrix/Matrix4x4.h>
+#include <Utility/Shader.h>
+#include <Node/SceneNode.h>
 
 #define DEPTH_VERTEX_SHADER  "\
  uniform mat4 in_Transform; \
@@ -15,9 +20,7 @@ void main() \
 	 gl_FragColor = vec4(0,0,0,1); \
  }"
 #define DEPTH_SHADER "SMOKE_DEPTH_SHADER"
-class Shader;
-class Matrix4x4;
-class SceneNode;
+
 class RenderObject
 {
 private:
@@ -31,4 +34,6 @@ public:
 	 virtual void Draw(Matrix4x4 transform, Matrix4x4 view) = 0;
 	 virtual void DepthDraw(Matrix4x4 transform, Matrix4x4 view) = 0;
 };
+
+#endif
 

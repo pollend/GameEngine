@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _SHADER_SOURCE_STORAGE_H_
+#define  _SHADER_SOURCE_STORAGE_H_
+
 #include <map>
 #include <string>
 #include "Utility/Source.h"
@@ -48,3 +50,4 @@ public:
 
 };
 
+#endif

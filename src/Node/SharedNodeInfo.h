@@ -1,14 +1,17 @@
-#pragma once
+#ifndef _SHARED_NODE_INFO_H_
+#define  _SHARED_NODE_INFO_H_
+
 
 #include <map>
 #include <string>
 #include <list>
-class Node;
-class AttachmentNode;
+#include "Node.h"
+
 /*TODO: needs more structure*/
 /**
 *information that is shared between all the nodes
 **/
+class AttachmentNode;
 class SharedNodeInfo
 {
 	public:
@@ -21,3 +24,4 @@ class SharedNodeInfo
 	~SharedNodeInfo(void);
 };
 
+#endif

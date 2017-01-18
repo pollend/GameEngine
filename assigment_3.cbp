@@ -99,6 +99,24 @@
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng/lodepng.h">
 			<Option target="app"/>
 		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/AttachmentNode.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/AttachmentNode.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/LightAttachmentNode.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/LightAttachmentNode.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/InputEvent.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/InputEvent.h">
+			<Option target="app"/>
+		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/Node.cpp">
 			<Option target="app"/>
 		</Unit>
@@ -147,6 +165,21 @@
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Sprite.h">
 			<Option target="app"/>
 		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/S_Debug.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SceneManager.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SceneManager.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SmokeEngine.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SmokeEngine.h">
+			<Option target="app"/>
+		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ShaderSourceStorage.cpp">
 			<Option target="app"/>
 		</Unit>
@@ -162,7 +195,13 @@
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/TextureStorage.h">
 			<Option target="app"/>
 		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/VertexBufferStorage.cpp">
+			<Option target="app"/>
+		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/VertexBufferStorage.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ViewStorage.cpp">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ViewStorage.h">
@@ -174,6 +213,9 @@
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/TestScene/TestScene.h">
 			<Option target="app"/>
 		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/BoundedBox.cpp">
+			<Option target="app"/>
+		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/BoundedBox.h">
 			<Option target="app"/>
 		</Unit>
@@ -181,6 +223,18 @@
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Camera.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/Matrix4x4.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/Matrix4x4.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixStack.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixStack.h">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Quaternion.cpp">
@@ -211,6 +265,24 @@
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Texture.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector2.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector2.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector3.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector3.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector4.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector4.h">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/WaveFrontLoad.cpp">

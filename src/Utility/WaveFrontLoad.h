@@ -1,10 +1,12 @@
-#pragma once
+#ifndef _WAVE_FRONT_LOADER_H_
+#define _WAVE_FRONT_LOADER_H_
+
 #include <string>
 #include <vector>
+#include <VertexObject/VertexArrayObject.h>
+#include <VertexObject/VertexBufferObjectWithSubData.h>
 
-class VertexBufferObjectWithSubData;
-class VertexArrayObject;
-class AAssetManager;
+
 class WaveFrontLoad
 {
 private:
@@ -20,6 +22,7 @@ public:
 	/**
 	*loads the wavefront file and stores the values within the subdata object and array object
 	**/
-	static VertexArrayObject* Load(const char* file,AAssetManager* assetManager, VertexBufferObjectWithSubData * vertexBufferObjectWithSubData);
+	static VertexArrayObject* Load(const char* file, VertexBufferObjectWithSubData * vertexBufferObjectWithSubData);
 };
 
+#endif

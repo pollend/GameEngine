@@ -1,7 +1,5 @@
-#include "VertexObject\VertexBufferObjectWithSubData.h"
-#include <android\log.h>
-#include <string>
-#include "S_Debug.h"
+#include "VertexObject/VertexBufferObjectWithSubData.h"
+#include <boost/log/trivial.hpp>
 
 VertexBufferObjectWithSubData::SubData::SubData(GLfloat data[],int size,int vectorType) 
 {
@@ -165,10 +163,10 @@ void VertexBufferObjectWithSubData::IntalizeBuffer()
 	GLsizeiptr lsize = 0;
 	for(int x =0; x < _data.size(); x++)
 	{
-			INFO("%d", _data[x]->GetSize());
+		BOOST_LOG_TRIVIAL(trace) << _data[x]->GetSize();
 		lsize += _data[x]->GetSize();
 	}
-	INFO("%d", lsize);
+	BOOST_LOG_TRIVIAL(trace) << lsize;
 	glBindBuffer(GL_ARRAY_BUFFER,*_id);
 	glBufferData(GL_ARRAY_BUFFER,lsize,NULL, GL_STATIC_DRAW );
 

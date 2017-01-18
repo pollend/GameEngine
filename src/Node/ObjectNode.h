@@ -1,14 +1,14 @@
-#pragma once
+#ifndef _OBJECT_NODE_H_
+#define  _OBJECT_NODE_H_
 
 #include <map>
 #include <string>
-#include "Node.h"
+#include <Render/RenderObject.h>
 #include "Utility/Vector/Vector3.h"
 
 class RenderObject;
-class Matrix4x4;
 class AttachmentNodeCallback;
-
+class AttachmentNode;
 class ObjectNode : public Node
 {
 private:
@@ -52,3 +52,5 @@ public:
 	**/
 	virtual std::string GetType();
 };
+
+#endif

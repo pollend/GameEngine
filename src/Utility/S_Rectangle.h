@@ -1,5 +1,9 @@
-#pragma once
-#include "Utility/Vector/Vector2.h"
+#ifndef _SHADER_H_
+#define _SHADER_H_
+
+
+#include <Utility/Vector/Vector2.h>
+
 class S_Rectangle
 {
 public:
@@ -19,3 +23,4 @@ public:
 	bool IsPointContainedInRectangle(Vector2 point);
 };
 
+#endif
