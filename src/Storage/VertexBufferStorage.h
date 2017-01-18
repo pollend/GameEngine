@@ -3,7 +3,7 @@
 
 #include "VertexObject/VertexObject.h"
 #include "VertexObject/VertexBufferObjectWithSubData.h"
-#include "VertexObject/VertexArrayObject.h"
+#include "VertexObject/VertexElementBuffer.h"
 #include <map>
 #include <string>
 
@@ -30,10 +30,10 @@ public:
 	/**
 	*appends a vertex array object to the map
 	**/
-	void AppendVertexObject(std::string id,VertexArrayObject* vertexObject);
+	void AppendVertexObject(std::string id,VertexElementBuffer* vertexObject);
 
 	VertexBufferObjectWithSubData* GetVertexObjectWithSubData(std::string id);
-	VertexArrayObject* GetVertexArryObject(std::string id);
+	VertexElementBuffer* GetVertexArryObject(std::string id);
 
 	/**
 	*tells if the vertex array object with the given id exist

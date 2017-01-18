@@ -47,6 +47,7 @@
 					<Add option="-DBOOST_LOG_DYN_LINK"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/src"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng"/>
+					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
@@ -73,6 +74,7 @@
 					<Add option="-DBOOST_LOG_DYN_LINK"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/src"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng"/>
+					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
@@ -97,6 +99,12 @@
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng/lodepng.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader/tiny_obj_loader.cc">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader/tiny_obj_loader.h">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/AttachmentNode.cpp">
@@ -163,9 +171,6 @@
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Sprite.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/S_Debug.h">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SceneManager.cpp">
@@ -291,16 +296,16 @@
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/WaveFrontLoad.h">
 			<Option target="app"/>
 		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexArrayObject.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexArrayObject.h">
-			<Option target="app"/>
-		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexBufferObjectWithSubData.cpp">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexBufferObjectWithSubData.h">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexElementBuffer.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexElementBuffer.h">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexObject.cpp">

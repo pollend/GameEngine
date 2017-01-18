@@ -2,7 +2,7 @@
 #define _MODEL_H_
 
 #include <VertexObject/VertexBufferObjectWithSubData.h>
-#include <VertexObject/VertexArrayObject.h>
+#include <VertexObject/VertexElementBuffer.h>
 #include "Render/RenderObject.h"
 
 
@@ -10,7 +10,7 @@ class Model :public RenderObject
 {
 private:
 	VertexBufferObjectWithSubData * _vertexBufferObject;
-	VertexArrayObject * _vertexArrayObject;
+	VertexElementBuffer * _vertexArrayObject;
 
 public:
 
@@ -19,7 +19,7 @@ public:
 	*objects need to be imput from the storage in sceneNode
 	*these objects else will have to be destroyed manually
 	**/
-	Model(SceneNode* sceneNode,VertexBufferObjectWithSubData* vertexBufferObject,VertexArrayObject* vertexArrayObject,Source* vertexSource, Source* Fragmentsource);
+	Model(SceneNode* sceneNode,VertexBufferObjectWithSubData* vertexBufferObject,VertexElementBuffer* vertexArrayObject,Source* vertexSource, Source* Fragmentsource);
 	virtual ~Model(void);
 
 	/**

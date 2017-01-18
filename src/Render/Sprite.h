@@ -47,12 +47,12 @@ gl_FragColor = texture2D(in_BaseImage,p_TexCoords);\
 }"
 #define SPRITE "SMOKE_SPRITE"
 
-class VertexArrayObject;
+class VertexElementBuffer;
 class VertexBufferObjectWithSubData;
 class Sprite : public RenderObject
 {
 private:
-	VertexArrayObject * mVertexArrayObject;
+	VertexElementBuffer * mVertexArrayObject;
 	SceneNode * _sceneNode;
 	//sprite intalization
 	void _initialize(SceneNode * sceneNode);

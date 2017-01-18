@@ -4,7 +4,7 @@
 #include "VertexObject.h"
 #include <GL/glew.h>
 
-class VertexArrayObject : public VertexObject
+class VertexElementBuffer : public VertexObject
 {
 private:
 	int _numberOfIndecies;
@@ -15,8 +15,8 @@ public:
 	*declares a vertex array of indecies
 	*
 	**/
-	VertexArrayObject(const GLushort data[], int size) ;
-	~VertexArrayObject(void);
+	VertexElementBuffer(const GLushort data[], int size) ;
+	~VertexElementBuffer(void);
 
 	/**
 	*binders the vertex array Object

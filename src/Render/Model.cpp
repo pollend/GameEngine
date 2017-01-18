@@ -2,7 +2,7 @@
 #include "Render/Model.h"
 
 
-Model::Model(SceneNode* sceneNode,VertexBufferObjectWithSubData* vertexBufferObject,VertexArrayObject* vertexArrayObject,Source* vertexSource, Source* Fragmentsource) : RenderObject(sceneNode)
+Model::Model(SceneNode* sceneNode,VertexBufferObjectWithSubData* vertexBufferObject,VertexElementBuffer* vertexArrayObject,Source* vertexSource, Source* Fragmentsource) : RenderObject(sceneNode)
 {
 	vertexBufferObject->IntalizeBuffer();
 
@@ -24,7 +24,7 @@ Model::Model(SceneNode* sceneNode,VertexBufferObjectWithSubData* vertexBufferObj
 			mShader->SetAttrib(x,"in_TexCoords");
 		}
 	}
-	
+
 	mShader->IntalizeShader();
 
 	mShader->SetMatrix4x4("in_Transform",Matrix4x4::Idenity());
@@ -44,11 +44,11 @@ void Model::Draw(Matrix4x4 transform, Matrix4x4 view)
 {
 	mShader->BindShader();
 
+    _vertexArrayObject->Bind();
+    _vertexBufferObject->Bind();
+
 	mShader->SetMatrix4x4("in_Transform",transform);
 	mShader->SetMatrix4x4("in_View",view);
-
-	_vertexArrayObject->Bind();
-	_vertexBufferObject->Bind();
 
 	glDrawElements(GL_TRIANGLES,_vertexArrayObject->GetNumberOfIndecies(),GL_UNSIGNED_SHORT,0);
 }

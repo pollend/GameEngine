@@ -26,7 +26,7 @@ void TestScene::Load()
 	if(!this->mSmokeEngine->mVertexBufferStorage->IsVertexArrayObjectExist("Teapot") || !this->mSmokeEngine->mVertexBufferStorage->IsVertexObjectWithSubDataExist("Teapot"))
 	{
 		VertexBufferObjectWithSubData * lsubData = new VertexBufferObjectWithSubData();
-		VertexArrayObject * lVertexArray = WaveFrontLoad::Load("assets/Teapot.obj",lsubData);
+		VertexElementBuffer * lVertexArray = WaveFrontLoad::Load("assets/Teapot.obj",lsubData);
 		this->mSmokeEngine->mVertexBufferStorage->AppendVertexObject("Teapot",lsubData);
 		this->mSmokeEngine->mVertexBufferStorage->AppendVertexObject("Teapot",lVertexArray);
 	}
@@ -62,7 +62,7 @@ void TestScene::InintalizeScene()
 
 	Sprite* sp = new Sprite(this,this->mSmokeEngine->mTextureStorage->GetTexture("assets/test-pattern.png"));
 
-	_testObject->SetRenderObject(sp,true);
+	_testObject->SetRenderObject(lmodel,true);
 
 }
 
@@ -73,7 +73,7 @@ void TestScene::Inintalize()
 	_testObject = new ObjectNode("test");
 	this->mRootSceneNode->AppendNode(_testObject);
 	this->mRootSceneNode->AppendNode(_lightNode);
-	_testObject->Position = Vector3(0,0,-3);
+	_testObject->Position = Vector3(0,-3,-30);
 
 	x = 0;
 }

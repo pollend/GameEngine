@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include <VertexObject/VertexArrayObject.h>
+#include <VertexObject/VertexElementBuffer.h>
 #include <VertexObject/VertexBufferObjectWithSubData.h>
 
 
@@ -22,7 +22,7 @@ public:
 	/**
 	*loads the wavefront file and stores the values within the subdata object and array object
 	**/
-	static VertexArrayObject* Load(const char* file, VertexBufferObjectWithSubData * vertexBufferObjectWithSubData);
+	static VertexElementBuffer* Load(const char* file, VertexBufferObjectWithSubData * vertexBufferObjectWithSubData);
 };
 
 #endif

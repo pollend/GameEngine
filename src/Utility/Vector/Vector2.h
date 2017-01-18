@@ -34,5 +34,9 @@ class Vector2
 		*returns the lenght of the vector
 		**/
 		float GetLength();
+
+		bool operator==(const Vector2& other) const {
+			return X == other.X && Y == other.Y;
+		}
 };
 

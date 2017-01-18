@@ -1,5 +1,5 @@
 #include "Render/Sprite.h"
-#include "VertexObject/VertexArrayObject.h"
+#include "VertexObject/VertexElementBuffer.h"
 #include "VertexObject/VertexBufferObjectWithSubData.h"
 #include "SmokeEngine.h"
 
@@ -42,7 +42,7 @@ void Sprite::_initialize(SceneNode * sceneNode)
 	if(!sceneNode->mSmokeEngine->mVertexBufferStorage->IsVertexArrayObjectExist(SPRITE))
 	{
 		GLushort ldata[] = SPRITE_INDECIES;
-		sceneNode->mSmokeEngine->mVertexBufferStorage->AppendVertexObject(SPRITE,new VertexArrayObject(ldata, SPRITE_INDECIES_SIZE));
+		sceneNode->mSmokeEngine->mVertexBufferStorage->AppendVertexObject(SPRITE,new VertexElementBuffer(ldata, SPRITE_INDECIES_SIZE));
 	}
 	if(!sceneNode->mSmokeEngine->mVertexBufferStorage->IsVertexObjectWithSubDataExist(SPRITE))
 	{

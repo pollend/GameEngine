@@ -1,7 +1,7 @@
 #include "VertexObject/VertexBufferObjectWithSubData.h"
 #include <boost/log/trivial.hpp>
 
-VertexBufferObjectWithSubData::SubData::SubData(GLfloat data[],int size,int vectorType) 
+VertexBufferObjectWithSubData::SubData::SubData(GLfloat data[],int size,int vectorType)
 {
 		_data = new GLfloat[size];
 		 for(int x =0; x < size; x++)
@@ -13,7 +13,7 @@ VertexBufferObjectWithSubData::SubData::SubData(GLfloat data[],int size,int vect
 		 _vectorType = vectorType;
 		  _listedType ="";
 }
-VertexBufferObjectWithSubData::SubData::SubData(Vector2 data[],int size) 
+VertexBufferObjectWithSubData::SubData::SubData(Vector2 data[],int size)
 {
 		_data = new GLfloat[size* 2];
 		 for(int x =0; x < size; x++)
@@ -38,7 +38,7 @@ VertexBufferObjectWithSubData::SubData::SubData(Vector3 data[],int size)
 		 _vectorType = 3;
 		  _listedType ="";
 }
-VertexBufferObjectWithSubData::SubData::SubData(Vector4 data[],int size) 
+VertexBufferObjectWithSubData::SubData::SubData(Vector4 data[],int size)
 {
 		_data = new GLfloat[size* 4];
 		 for(int x =0; x < size; x++)
@@ -167,6 +167,7 @@ void VertexBufferObjectWithSubData::IntalizeBuffer()
 		lsize += _data[x]->GetSize();
 	}
 	BOOST_LOG_TRIVIAL(trace) << lsize;
+
 	glBindBuffer(GL_ARRAY_BUFFER,*_id);
 	glBufferData(GL_ARRAY_BUFFER,lsize,NULL, GL_STATIC_DRAW );
 

@@ -42,5 +42,9 @@ public:
 	 *retrieves the lenght of the vector
 	**/
 	float GetLength();
+
+	bool operator==(const Vector4& other) const {
+		return X == other.X && Y == other.Y && Z == other.Z && W == other.W;
+	}
 };
 

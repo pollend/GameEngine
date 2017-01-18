@@ -45,4 +45,8 @@
 				 *retrieves the lenght of the vector3 element
 				 **/ 
 				float GetLength();
+
+				bool operator==(const Vector3& other) const {
+					return X == other.X && Y == other.Y && Z == other.Z;
+				}
 		};
