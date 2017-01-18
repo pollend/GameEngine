@@ -2,6 +2,7 @@
 #include "math.h"
 #include "Node/Node.h"
 #include "Utility/Matrix/MatrixStack.h"
+
 Camera::Camera(Matrix4x4 ViewMatrix)
 {
 	_viewMatrix= ViewMatrix;

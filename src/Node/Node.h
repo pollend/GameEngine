@@ -5,9 +5,11 @@
 #include <list>
 #include <map>
 #include <string>
-#include "Utility/Vector/Vector3.h"
-#include "Utility/Quaternion.h"
-#include "Utility/Matrix/Matrix4x4.h"
+#include <Eigen/Dense>
+
+using Eigen::Vector3f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
 
 class SharedNodeInfo;
 class Camera;
@@ -33,9 +35,9 @@ class Node
 	
 	public:
 
-		Vector3 Position;
-		Vector3 Scale;
-		Quaternion Rotation;
+        Vector3f Position;
+        Vector3f Scale;
+		Quaternionf Rotation;
 
 		Node(std::string ID);
 		virtual ~Node(void);
@@ -43,7 +45,7 @@ class Node
 		/**
 		 * retrieves the matrix for the object
 		 **/
-		virtual Matrix4x4 GetMatrix();
+		virtual Matrix4f GetMatrix();
 
 		/**
 		 * retrieves the ID of the node
@@ -84,7 +86,7 @@ class Node
 		/**
 		 * gets the location of the node relative to the camera
 		 **/
-		Matrix4x4 GetLocationOfNode(Camera* cam);
+        Matrix4f GetLocationOfNode(Camera* cam);
         
 		/**
 		 * gets the node type

@@ -2,13 +2,15 @@
 #define _MATRIX_STACK_H_
 
 #include <list>
+#include <Eigen/Dense>
 
-class Matrix4x4;
+using Eigen::Matrix4f;
+
 class MatrixStack
 {
 private:
 	//a stack of matricies
-	 std::list<Matrix4x4> _matricies;
+	 std::list<Matrix4f> _matricies;
 
 public:
 
@@ -18,7 +20,7 @@ public:
 	/**
 	 *pushes on the stack
 	 **/
-	void Push(const Matrix4x4& matrix);
+	void Push(const Matrix4f& matrix);
 	/**
 	 * pop from the matrix stack
 	 **/
@@ -27,12 +29,12 @@ public:
 	/**
 	*get the full transform set from beginning of the set to the end
 	**/
-	Matrix4x4 GetTransformMatrix();
+	Matrix4f GetTransformMatrix();
 	
 	/**
 	 * get the full transform set from the end of the set to the beginning
 	 **/
-	Matrix4x4 GetReverseTransformMatrix();
+	Matrix4f GetReverseTransformMatrix();
 
 };
 

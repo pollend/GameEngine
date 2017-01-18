@@ -5,7 +5,7 @@
 		<Option title="assigment_3"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\..\usr\lib\cmake\eigen3\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/michaelpollind/Desktop/SmokeEngine"/>
@@ -45,6 +45,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DBOOST_LOG_DYN_LINK"/>
+					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/src"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader"/>
@@ -72,6 +73,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DBOOST_LOG_DYN_LINK"/>
+					<Add directory="/usr/include/eigen3"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/src"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng"/>
 					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader"/>
@@ -236,6 +238,12 @@
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/Matrix4x4.h">
 			<Option target="app"/>
 		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixHelper.cpp">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixHelper.h">
+			<Option target="app"/>
+		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixStack.cpp">
 			<Option target="app"/>
 		</Unit>
@@ -316,6 +324,9 @@
 		</Unit>
 		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/../../../../usr/lib/cmake/eigen3/Eigen3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\cmake\eigen3\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

@@ -1,24 +1,23 @@
 #include "Utility/Matrix/MatrixStack.h"
-#include "Utility/Matrix/Matrix4x4.h"
 
 MatrixStack::MatrixStack(void)
 {
-	_matricies = std::list<Matrix4x4>();
+	_matricies = std::list<Matrix4f>();
 }
 
 MatrixStack::~MatrixStack(void)
 {
 }
 
-void MatrixStack::Push(const Matrix4x4& matrix)
+void MatrixStack::Push(const Matrix4f& matrix)
 {
 	_matricies.push_back(matrix);
 }
 
-Matrix4x4 MatrixStack::GetTransformMatrix()
+Matrix4f MatrixStack::GetTransformMatrix()
 {
-	Matrix4x4 lfinal = Matrix4x4();
-	for (std::list<Matrix4x4>::iterator it=_matricies.begin(); it != _matricies.end(); ++it)
+	Matrix4f lfinal = Matrix4f();
+	for (std::list<Matrix4f>::iterator it=_matricies.begin(); it != _matricies.end(); ++it)
 	{
 		lfinal = lfinal * (*it);
 	}
@@ -26,13 +25,14 @@ Matrix4x4 MatrixStack::GetTransformMatrix()
 
 }
 
-Matrix4x4 MatrixStack::GetReverseTransformMatrix()
+Matrix4f MatrixStack::GetReverseTransformMatrix()
 {
-	Matrix4x4 lfinal = Matrix4x4();
+	Matrix4f lfinal;
+	lfinal.setIdentity(4, 4);
 	
-	for (std::list<Matrix4x4>::reverse_iterator it= _matricies.rbegin(); it != _matricies.rend(); ++it)
+	for (std::list<Matrix4f>::reverse_iterator it= _matricies.rbegin(); it != _matricies.rend(); ++it)
 	{
-		Matrix4x4 r = (*it);
+		Matrix4f r = (*it);
 		lfinal = lfinal * (*it);
 	}
 	return lfinal;

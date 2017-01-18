@@ -6,7 +6,6 @@
 #include "Utility/Vector/Vector3.h"
 #include "Utility/Quaternion.h"
 
-class Node;
 class Camera
 {
 private:
