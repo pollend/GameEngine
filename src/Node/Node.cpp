@@ -1,17 +1,22 @@
 #include "Node/Node.h"
 #include "Utility/Matrix/MatrixStack.h"
-#include "Utility/Matrix/Matrix4x4.h"
 #include "Utility/Camera.h"
 #include "Node/SharedNodeInfo.h"
+#include "Utility/Matrix/MatrixHelper.h"
+
+
+using Eigen::Vector3f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
 
 Node::Node(std::string ID)
 {
 
 	_parentNode = NULL;
 
-	Position = Vector3();
-	Scale = Vector3(1,1,1);
-	Rotation = Quaternion();
+	Position = Vector3f();
+	Scale = Vector3f(1,1,1);
+	Rotation = Quaternionf();
 
 	_children =new std::list<Node*>();
 	_id = ID;
@@ -65,11 +70,11 @@ std::string Node::GetType(){
 	return "Node";
 }
 
-Matrix4x4 Node::GetMatrix()
+Matrix4f Node::GetMatrix()
 {
-	Matrix4x4 lscale = Matrix4x4::Scale(Scale);
-	Matrix4x4 lposition = Matrix4x4::Translation(Position);
-	Matrix4x4 lrotation =Rotation.ConvertToMatrix();
+    Matrix4f lscale    = MatrixHelper::Scale(Scale);
+    Matrix4f lposition = MatrixHelper::Translation(Position);
+    Matrix4f lrotation = MatrixHelper::FromQuaternion(Rotation);
 	return lscale  * lrotation * lposition;
 }
 
@@ -113,7 +118,7 @@ std::list<Node*>*  Node::GetChildren()
 	return _children;
 }
 
-Matrix4x4 Node::GetLocationOfNode(Camera* cam)
+Matrix4f Node::GetLocationOfNode(Camera* cam)
 {
 	MatrixStack lstack = MatrixStack();
 	Node* llastParent = this;

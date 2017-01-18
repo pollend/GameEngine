@@ -3,14 +3,18 @@
 
 #include <SmokeEngine.h>
 #include "Node/AttachmentNode/AttachmentNode.h"
-#include "Utility/Vector/Vector3.h"
+#include <Eigen/Dense>
+
+using Eigen::Vector3f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
 
 class LightAttachmentNode :
 	public AttachmentNode
 {
 
 public:
-	Vector3 mColor;
+	Vector3f mColor;
 	float mIntesnity;
 
 	LightAttachmentNode(std::string id, SmokeEngine * Engine);

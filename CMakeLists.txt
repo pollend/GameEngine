@@ -53,6 +53,16 @@ find_package (Threads)
 if (NOT Threads_FOUND)
     message(ERROR " GLEW not found!")
 endif()
+
+#########################################################
+# Find Eigen
+#########################################################
+find_package( Eigen3 REQUIRED )
+IF( NOT EIGEN3_INCLUDE_DIR )
+    MESSAGE( FATAL_ERROR "Please point the environment variable EIGEN3_INCLUDE_DIR to the include directory of your Eigen3 installation.")
+ENDIF()
+include_directories ( "${EIGEN3_INCLUDE_DIR}" )
+
 #########################################################
 # Include Files
 #########################################################
@@ -72,5 +82,5 @@ FILE(GLOB TINY_OBJ_LOADER "lib/tinyobjloader/tiny_obj_loader.h" "lib/tinyobjload
 MESSAGE(source files: "${SRC} ${HEADER}")
 
 
-add_executable(app ./app/app.cpp ${SRC} ${LODEPNG} ${TINY_OBJ_LOADER})
+add_executable(app ./app/app.cpp ${SRC} ${LODEPNG} ${TINY_OBJ_LOADER} src/Utility/Matrix/MatrixHelper.cpp src/Utility/Matrix/MatrixHelper.h)
 target_link_libraries (app ${Boost_LOG_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})

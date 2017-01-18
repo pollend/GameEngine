@@ -4,7 +4,10 @@
 #include <map>
 #include <string>
 #include <Render/RenderObject.h>
-#include "Utility/Vector/Vector3.h"
+#include <Eigen/Dense>
+
+using Eigen::Vector3f;
+using Eigen::Matrix4f;
 
 class RenderObject;
 class AttachmentNodeCallback;
@@ -16,7 +19,7 @@ private:
 	RenderObject * _RenderObject;
 public:
 	//the origin of the object for the given item
-	Vector3 Origin;
+	Vector3f Origin;
 
 	ObjectNode(std::string ID);
 
@@ -29,7 +32,7 @@ public:
 	/**
 	*returns the matrix of the object
 	**/
-	virtual Matrix4x4 GetMatrix();
+	virtual Matrix4f GetMatrix();
 
 	/**
 	*adds the attachment node callback to the object node
@@ -45,7 +48,7 @@ public:
 	*updates the object node
 	**/
 	virtual void Update();
-	void Draw(Matrix4x4 transform, Matrix4x4 view);
+	void Draw(Matrix4f transform, Matrix4f view);
 
 	/**
 	*returns the objects type for the given class object

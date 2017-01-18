@@ -1,18 +1,22 @@
 #ifndef _BOUNDED_BOX_H_
 #define _BOUNDED_BOX_H_
 
-#include "Utility/Vector/Vector3.h"
+#include <Eigen/Dense>
 
+using Eigen::Vector3f;
+using Eigen::Vector2f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
 class BoundedBox
 {
 public:
-	Vector3 Position;
-	Vector3 Size;
+	Vector3f Position;
+	Vector3f Size;
 
 	/**
 	 * creates a bound box for the postion and size
 	 **/
-	BoundedBox(Vector3 position, Vector3 Size);
+	BoundedBox(Vector3f position, Vector3f Size);
 	~BoundedBox(void);
 
 	/** 
@@ -23,7 +27,7 @@ public:
 	/** 
 	*detects in the point is inside of a boundedBox. 
 	**/
-	bool IsBoundBoxContainPoint(Vector3 point);
+	bool IsBoundBoxContainPoint(Vector3f point);
 };
 
 

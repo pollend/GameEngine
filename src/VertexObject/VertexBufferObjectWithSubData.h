@@ -1,11 +1,9 @@
 #include <GL/glew.h>
 #include "VertexObject.h"
-#include "Utility/Vector/Vector2.h"
-#include "Utility/Vector/Vector3.h"
-#include "Utility/Vector/Vector4.h"
 #include <vector>
 #include "VertexObject.h"
 #include <string>
+#include <Eigen/Dense>
 
 
 #ifndef _VERTEX_BUFFER_OBJECT_WITH_SUB_DATA_H_
@@ -14,6 +12,13 @@
 #define VERTEX "VERTEX"
 #define NORMALS "NORMALS"
 #define TEX_COORDS "TEX_COORDS"
+
+using Eigen::Vector2f;
+using Eigen::Vector3f;
+using Eigen::Vector4f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
+
 
 class VertexBufferObjectWithSubData : public VertexObject
 {
@@ -30,14 +35,14 @@ public:
 			*
 			**/
 			SubData(GLfloat data[],int size,int vectorType);
-			SubData(Vector2 data[],int size);
-			SubData(Vector3 data[],int size);
-			SubData(Vector4 data[],int size);
+			SubData(Vector2f data[],int size);
+			SubData(Vector3f data[],int size);
+			SubData(Vector4f data[],int size);
 
 			SubData(GLfloat data[],int size,int vectorType,std::string listed);
-			SubData(Vector2 data[],int size,std::string listed);
-			SubData(Vector3 data[],int size,std::string listed);
-			SubData(Vector4 data[],int size,std::string listed);
+			SubData(Vector2f data[],int size,std::string listed);
+			SubData(Vector3f data[],int size,std::string listed);
+			SubData(Vector4f data[],int size,std::string listed);
 
 			~SubData();
 

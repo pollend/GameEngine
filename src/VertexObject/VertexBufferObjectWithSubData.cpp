@@ -13,40 +13,40 @@ VertexBufferObjectWithSubData::SubData::SubData(GLfloat data[],int size,int vect
 		 _vectorType = vectorType;
 		  _listedType ="";
 }
-VertexBufferObjectWithSubData::SubData::SubData(Vector2 data[],int size)
+VertexBufferObjectWithSubData::SubData::SubData(Vector2f data[],int size)
 {
 		_data = new GLfloat[size* 2];
 		 for(int x =0; x < size; x++)
 		 {
-			 _data[(x * 2)+ 0] = data[x].X;
-			 _data[(x * 2)+ 1] = data[x].Y;
+			 _data[(x * 2)+ 0] = data[x].x();
+			 _data[(x * 2)+ 1] = data[x].y();
 		 }
 		 _size = size * 2* sizeof(GLfloat);
 		 _vectorType = 2;
 		  _listedType ="";
 }
-VertexBufferObjectWithSubData::SubData::SubData(Vector3 data[],int size)
+VertexBufferObjectWithSubData::SubData::SubData(Vector3f data[],int size)
 {
 		_data = new GLfloat[size* 3];
 		 for(int x =0; x < size; x++)
 		 {
-			 _data[(x * 3)+ 0] = data[x].X;
-			 _data[(x * 3)+ 1] = data[x].Y;
-			 _data[(x * 3)+ 2] = data[x].Z;
+			 _data[(x * 3)+ 0] = data[x].x();
+			 _data[(x * 3)+ 1] = data[x].y();
+			 _data[(x * 3)+ 2] = data[x].z();
 		 }
 		 _size = size * 3* sizeof(GLfloat);
 		 _vectorType = 3;
 		  _listedType ="";
 }
-VertexBufferObjectWithSubData::SubData::SubData(Vector4 data[],int size)
+VertexBufferObjectWithSubData::SubData::SubData(Vector4f data[],int size)
 {
 		_data = new GLfloat[size* 4];
 		 for(int x =0; x < size; x++)
 		 {
-			 _data[(x * 4)+ 0] = data[x].X;
-			 _data[(x * 4)+ 1] = data[x].Y;
-			 _data[(x * 4)+ 2] = data[x].Z;
-			 _data[(x * 4)+ 3] = data[x].W;
+			 _data[(x * 4)+ 0] = data[x].x();
+			 _data[(x * 4)+ 1] = data[x].y();
+			 _data[(x * 4)+ 2] = data[x].z();
+			 _data[(x * 4)+ 3] = data[x].w();
 		 }
 		 _size = size * 4* sizeof(GLfloat);
 		 _vectorType = 4;
@@ -67,41 +67,41 @@ VertexBufferObjectWithSubData::SubData::SubData(GLfloat data[],int size,int vect
 	
 	_listedType = listed;
 }
-VertexBufferObjectWithSubData::SubData::SubData(Vector2 data[],int size,std::string listed)
+VertexBufferObjectWithSubData::SubData::SubData(Vector2f data[],int size,std::string listed)
 {
 	_data = new GLfloat[size* 2];
 	for(int x =0; x < size; x++)
 	{
-		_data[(x * 2)+ 0] = data[x].X;
-		_data[(x * 2)+ 1] = data[x].Y;
+		_data[(x * 2)+ 0] = data[x].x();
+		_data[(x * 2)+ 1] = data[x].y();
 	}
 	_size = size * 2* sizeof(GLfloat);
 	_vectorType = 2;
 
 	_listedType = listed;
 }
-VertexBufferObjectWithSubData::SubData::SubData(Vector3 data[],int size,std::string listed)
+VertexBufferObjectWithSubData::SubData::SubData(Vector3f data[],int size,std::string listed)
 {
 	_data = new GLfloat[size* 3];
 	for(int x =0; x < size; x++)
 	{
-		_data[(x * 3)+ 0] = data[x].X;
-		_data[(x * 3)+ 1] = data[x].Y;
-		_data[(x * 3)+ 2] = data[x].Z;
+		_data[(x * 3)+ 0] = data[x].x();
+		_data[(x * 3)+ 1] = data[x].y();
+		_data[(x * 3)+ 2] = data[x].z();
 	}
 	_size = size * 3* sizeof(GLfloat);
 	_vectorType = 3;
 	_listedType = listed;
 }
-VertexBufferObjectWithSubData::SubData::SubData(Vector4 data[],int size,std::string listed)
+VertexBufferObjectWithSubData::SubData::SubData(Vector4f data[],int size,std::string listed)
 {
 	_data = new GLfloat[size* 4];
 	for(int x =0; x < size; x++)
 	{
-		_data[(x * 4)+ 0] = data[x].X;
-		_data[(x * 4)+ 1] = data[x].Y;
-		_data[(x * 4)+ 2] = data[x].Z;
-		_data[(x * 4)+ 3] = data[x].W;
+		_data[(x * 4)+ 0] = data[x].x();
+		_data[(x * 4)+ 1] = data[x].y();
+		_data[(x * 4)+ 2] = data[x].z();
+		_data[(x * 4)+ 3] = data[x].w();
 	}
 	_size = size * 4* sizeof(GLfloat);
 	_vectorType = 4;

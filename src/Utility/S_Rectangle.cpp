@@ -5,7 +5,7 @@ S_Rectangle::S_Rectangle()
 }
 
 
-S_Rectangle::S_Rectangle(Vector2 position, Vector2 size)
+S_Rectangle::S_Rectangle(Vector2f position, Vector2f size)
 {
 	Position = position;
 	Size = size;
@@ -14,20 +14,12 @@ S_Rectangle::S_Rectangle(Vector2 position, Vector2 size)
 
 bool S_Rectangle::RectangleIntersection(S_Rectangle r)
 {
-	if(!(Position.X < r.Position.X  + r.Size.X || Position.X + Size.X > r.Position.X || Position.Y < r.Position.Y + r.Size.Y || Position.Y + Size.Y  > r.Position.Y))
-	{
-		return true;
-	}
-	return false;
+	return !(Position.x() < r.Position.x() + r.Size.x() || Position.x() + Size.x() > r.Position.x() || Position.y() < r.Position.y() + r.Size.y() || Position.y() + Size.y() > r.Position.y());
 }
 
-bool S_Rectangle::IsPointContainedInRectangle(Vector2 point)
+bool S_Rectangle::IsPointContainedInRectangle(Vector2f point)
 {
-	if(Position.X > point.X && Position.X + Size.X < point.X && Position.Y > point.Y && Position.Y + Size.Y < point.Y)
-	{
-		return true;
-	}
-	return false;
+	return Position.x() > point.x() && Position.x() + Size.x() < point.x() && Position.y() > point.y() && Position.y() + Size.y() < point.y();
 }
 
 

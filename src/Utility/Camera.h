@@ -2,22 +2,22 @@
 #define _CAMERA_H_
 
 #include <Node/Node.h>
-#include "Utility/Matrix/Matrix4x4.h"
-#include "Utility/Vector/Vector3.h"
-#include "Utility/Quaternion.h"
+#include <Eigen/Dense>
 
-class Node;
+using Eigen::Vector3f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
 class Camera
 {
 private:
-	Matrix4x4 _viewMatrix;
+	Matrix4f _viewMatrix;
 
 public:
-	Vector3 Position;
-	Quaternion Rotation;
+	Vector3f Position;
+	Quaternionf Rotation;
 
 
-	Camera(Matrix4x4 ViewMatrix);
+	Camera(Matrix4f ViewMatrix);
 	Camera(float fov,float aspect, float zNear, float zFar);
 	Camera(float left, float top, float right, float bottom, float zNear,float zFar);
 
@@ -26,15 +26,15 @@ public:
 	/** 
 	*returns the transform matrix for the camera
 	**/
-	Matrix4x4 GetMatrix();
+	Matrix4f GetMatrix();
 	/**
 	*returns the transform for the matrix relative to the camera
 	**/
-	Matrix4x4 GetTransformMatrixRelativeToNode(Node * node);
+	Matrix4f GetTransformMatrixRelativeToNode(Node * node);
 	/**
 	*gets the view matrix of the camera
 	**/
-	Matrix4x4 GetViewMatrix();
+	Matrix4f GetViewMatrix();
 };
 
 #endif

@@ -69,15 +69,15 @@ void Sprite::_initialize(SceneNode * sceneNode)
 	this->mShader->IntalizeShader();
 
 	//sets uniforms
-	this->mShader->SetMatrix4x4("in_View",Matrix4x4::Idenity());
-	this->mShader->SetMatrix4x4("in_Transform",Matrix4x4::Idenity());
+	this->mShader->SetMatrix4x4("in_View",Matrix4f::Identity());
+	this->mShader->SetMatrix4x4("in_Transform",Matrix4f::Identity());
 
-	SetClippingRectangle(Vector2(0,0),Vector2(1,1));
+	SetClippingRectangle(Vector2f(0,0),Vector2f(1,1));
 
 	
 }
 
-void Sprite::SetClippingRectangle(Vector2 pos, Vector2 size)
+void Sprite::SetClippingRectangle(Vector2f pos, Vector2f size)
 {
 	this->mShader->SetUniform2("in_Clipping_Position",pos);
 	this->mShader->SetUniform2("in_Clipping_Size",size);
@@ -88,7 +88,7 @@ Sprite::~Sprite(void)
 
 }
 
-void Sprite::Draw(Matrix4x4 transform, Matrix4x4 view)
+void Sprite::Draw(Matrix4f transform, Matrix4f view)
 {
 
 	glEnable(GL_BLEND);
@@ -106,6 +106,6 @@ void Sprite::Draw(Matrix4x4 transform, Matrix4x4 view)
 	glDisable(GL_BLEND);
 }
 
-void Sprite::DepthDraw(Matrix4x4 transform, Matrix4x4 view)
+void Sprite::DepthDraw(Matrix4f transform, Matrix4f view)
 {
 }

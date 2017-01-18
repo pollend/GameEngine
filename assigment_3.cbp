@@ -1,321 +1,302 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_project_file>
-	<FileVersion major="1" minor="6"/>
-	<Project>
-		<Option title="assigment_3"/>
-		<Option makefile_is_custom="1"/>
-		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
-		<Build>
-			<Target title="all">
-				<Option working_dir="/home/michaelpollind/Desktop/SmokeEngine"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/michaelpollind/Desktop/SmokeEngine"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/home/michaelpollind/Desktop/SmokeEngine"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="app">
-				<Option output="/home/michaelpollind/Desktop/SmokeEngine/bin/app" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/michaelpollind/Desktop/SmokeEngine/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DBOOST_LOG_DYN_LINK"/>
-					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/src"/>
-					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng"/>
-					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 app"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="app/fast">
-				<Option output="/home/michaelpollind/Desktop/SmokeEngine/bin/app" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/michaelpollind/Desktop/SmokeEngine/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add option="-DBOOST_LOG_DYN_LINK"/>
-					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/src"/>
-					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng"/>
-					<Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/6"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/6"/>
-					<Add directory="/usr/include/c++/6/backward"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 app/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-		</Build>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/app/app.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng/lodepng.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng/lodepng.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader/tiny_obj_loader.cc">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader/tiny_obj_loader.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/AttachmentNode.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/AttachmentNode.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/LightAttachmentNode.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/LightAttachmentNode.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/InputEvent.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/InputEvent.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/Node.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/Node.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/ObjectNode.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/ObjectNode.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/SceneNode.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/SceneNode.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/SharedNodeInfo.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/SharedNodeInfo.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Model.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Model.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/RenderObject.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/RenderObject.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Renderer.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Renderer.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Sprite.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Sprite.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SceneManager.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SceneManager.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SmokeEngine.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SmokeEngine.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ShaderSourceStorage.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ShaderSourceStorage.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/Storage.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/TextureStorage.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/TextureStorage.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/VertexBufferStorage.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/VertexBufferStorage.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ViewStorage.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ViewStorage.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/TestScene/TestScene.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/TestScene/TestScene.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/BoundedBox.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/BoundedBox.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Camera.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Camera.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/Matrix4x4.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/Matrix4x4.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixStack.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixStack.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Quaternion.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Quaternion.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/S_Rectangle.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/S_Rectangle.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Shader.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Shader.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Source.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Source.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Texture.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Texture.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector2.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector2.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector3.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector3.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector4.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Vector/Vector4.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/WaveFrontLoad.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/WaveFrontLoad.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexBufferObjectWithSubData.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexBufferObjectWithSubData.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexElementBuffer.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexElementBuffer.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexObject.cpp">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexObject.h">
-			<Option target="app"/>
-		</Unit>
-		<Unit filename="/home/michaelpollind/Desktop/SmokeEngine/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\"/>
-		</Unit>
-	</Project>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="assigment_3" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\..\usr\lib\cmake\eigen3\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/michaelpollind/Desktop/SmokeEngine" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/michaelpollind/Desktop/SmokeEngine" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/michaelpollind/Desktop/SmokeEngine" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="app">
+         <Option output="/home/michaelpollind/Desktop/SmokeEngine/bin/app" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/michaelpollind/Desktop/SmokeEngine/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DBOOST_LOG_DYN_LINK" />
+            <Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng" />
+            <Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader" />
+            <Add directory="/home/michaelpollind/Desktop/SmokeEngine/src" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/6" />
+            <Add directory="/usr/include/c++/6/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/6" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 app" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="app/fast">
+         <Option output="/home/michaelpollind/Desktop/SmokeEngine/bin/app" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/michaelpollind/Desktop/SmokeEngine/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DBOOST_LOG_DYN_LINK" />
+            <Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng" />
+            <Add directory="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader" />
+            <Add directory="/home/michaelpollind/Desktop/SmokeEngine/src" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/6" />
+            <Add directory="/usr/include/c++/6/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/6" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 app/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/michaelpollind/Desktop/SmokeEngine/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/app/app.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng/lodepng.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/lodepng/lodepng.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader/tiny_obj_loader.cc">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/lib/tinyobjloader/tiny_obj_loader.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/AttachmentNode.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/AttachmentNode.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/LightAttachmentNode.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/LightAttachmentNode.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/InputEvent.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/InputEvent.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/Node.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/Node.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/ObjectNode.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/ObjectNode.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/SceneNode.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/SceneNode.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/SharedNodeInfo.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/SharedNodeInfo.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Model.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Model.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/RenderObject.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/RenderObject.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Renderer.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Renderer.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Sprite.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Sprite.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SceneManager.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SceneManager.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SmokeEngine.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SmokeEngine.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ShaderSourceStorage.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ShaderSourceStorage.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/Storage.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/TextureStorage.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/TextureStorage.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/VertexBufferStorage.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/VertexBufferStorage.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ViewStorage.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ViewStorage.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/TestScene/TestScene.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/TestScene/TestScene.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/BoundedBox.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/BoundedBox.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Camera.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Camera.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixHelper.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixHelper.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixStack.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixStack.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/S_Rectangle.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/S_Rectangle.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Shader.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Shader.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Source.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Source.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Texture.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Texture.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/WaveFrontLoad.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/WaveFrontLoad.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexBufferObjectWithSubData.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexBufferObjectWithSubData.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexElementBuffer.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexElementBuffer.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexObject.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/VertexObject/VertexObject.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/../../../../usr/lib/cmake/eigen3/Eigen3Config.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\lib\cmake\eigen3\" />
+      </Unit>
+   </Project>
 </CodeBlocks_project_file>
