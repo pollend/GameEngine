@@ -1,9 +1,6 @@
 [submodule "lib/lodepng"]
 	path = lib/lodepng
 	url = https://github.com/lvandeve/lodepng.git
-[submodule "lib/qvm"]
-	path = lib/qvm
-	url = https://github.com/boostorg/qvm.git
 [submodule "lib/tinyobjloader"]
 	path = lib/tinyobjloader
 	url = https://github.com/syoyo/tinyobjloader.git
