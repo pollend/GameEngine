@@ -1,7 +1,7 @@
 #include "Utility/BoundedBox.h"
 
 
-BoundedBox::BoundedBox(Vector3 position, Vector3 size)
+BoundedBox::BoundedBox(Vector3f position, Vector3f size)
 {
 	Position = position;
 	Size = size;
@@ -15,14 +15,14 @@ BoundedBox::~BoundedBox(void)
 
 bool BoundedBox::BoundedBoxIntersection(BoundedBox boundedBox)
 {
-	return !(Position.X < boundedBox.Position.X + boundedBox.Size.X || Position.X + Size.X < boundedBox.Position.X ||
-    Position.Y < boundedBox.Position.Y + boundedBox.Size.Y || Position.Y + Size.Y < boundedBox.Position.Y ||
-    Position.Z < boundedBox.Position.Z + boundedBox.Size.Z || Position.Z + Size.Z < boundedBox.Position.Z);
+	return !(Position.x() < boundedBox.Position.x() + boundedBox.Size.x() || Position.x() + Size.x() < boundedBox.Position.x() ||
+    Position.y() < boundedBox.Position.y() + boundedBox.Size.y() || Position.y() + Size.y() < boundedBox.Position.y() ||
+    Position.z() < boundedBox.Position.z() + boundedBox.Size.z() || Position.z() + Size.z() < boundedBox.Position.z());
 
 }
-bool BoundedBox::IsBoundBoxContainPoint(Vector3 point)
+bool BoundedBox::IsBoundBoxContainPoint(Vector3f point)
 {
-	return Position.X > point.X && Position.X + Size.X < point.X &&
-    Position.Y > point.Y && Position.Y + Size.Y < point.Y &&
-    Position.Z > point.Z && Position.Z + Size.Z < point.Z;
+	return Position.x() > point.x() && Position.x() + Size.x() < point.x() &&
+    Position.y() > point.y() && Position.y() + Size.y() < point.y() &&
+    Position.z() > point.z() && Position.z() + Size.z() < point.z();
 }

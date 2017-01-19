@@ -54,13 +54,13 @@ std::vector<int> WaveFrontLoad::_splitInt(std::string str,std::string character)
 VertexElementBuffer* WaveFrontLoad::Load(const char* path, VertexBufferObjectWithSubData * vertexBufferObjectWithSubData)
 {
     std::vector<GLushort> lindecies = std::vector<GLushort>();
-    std::vector<Vector3> lverticies = std::vector<Vector3>();
-    std::vector<Vector2> ltexCoords = std::vector<Vector2>();
-    std::vector<Vector3> lvertexNormals = std::vector<Vector3>();
+    std::vector<Vector3f> lverticies = std::vector<Vector3f>();
+    std::vector<Vector2f> ltexCoords = std::vector<Vector2f>();
+    std::vector<Vector3f> lvertexNormals = std::vector<Vector3f>();
 
-    Vector3 *lfinalVerts = NULL;
-    Vector2 *lfinalTexCoords = NULL;
-    Vector3 *lfinalNormals = NULL;
+    Vector3f *lfinalVerts = NULL;
+    Vector2f *lfinalTexCoords = NULL;
+    Vector3f *lfinalNormals = NULL;
 
     std::ifstream file(path, std::ios::binary | std::ios::ate);
     std::streamsize lsize = file.tellg();
@@ -97,19 +97,19 @@ VertexElementBuffer* WaveFrontLoad::Load(const char* path, VertexBufferObjectWit
         if(lfinal[0] == 'v' && lfinal[1] == ' ')
         {
             std::vector<float> f = _splitFloat(lfinal.substr(2)," ");
-            lverticies.push_back(Vector3(f[0],f[1],f[2]));
+            lverticies.push_back(Vector3f(f[0],f[1],f[2]));
         }
         //vertex normal
         if(lfinal[0] == 'v' && lfinal[1] == 'n')
         {
             std::vector<float> f = _splitFloat(lfinal.substr(2)," ");
-            lvertexNormals.push_back(Vector3(f[0],f[1],f[2]));
+            lvertexNormals.push_back(Vector3f(f[0],f[1],f[2]));
         }
         //texture coordinates
         if(lfinal[0] == 'v' && lfinal[1] == 't')
         {
             std::vector<float> f = _splitFloat(lfinal.substr(2)," ");
-            ltexCoords.push_back(Vector2(f[0],f[1]));
+            ltexCoords.push_back(Vector2f(f[0],f[1]));
         }
         //fragment faces
         if(lfinal[0] == 'f' && lfinal[1] == ' ')
@@ -117,13 +117,13 @@ VertexElementBuffer* WaveFrontLoad::Load(const char* path, VertexBufferObjectWit
 
             std::vector<int> f = _splitInt(lfinal.substr(2), "/ ");
             if(lfinalVerts == NULL)
-                lfinalVerts =  new Vector3[lverticies.size()];
+                lfinalVerts =  new Vector3f[lverticies.size()];
 
             //vertex/texture-coords
             if(f.size() == 6)
             {
                 if(lfinalTexCoords == NULL)
-                    lfinalTexCoords =  new Vector2[lverticies.size()];
+                    lfinalTexCoords =  new Vector2f[lverticies.size()];
 
 
                 //pass in verticies
@@ -144,7 +144,7 @@ VertexElementBuffer* WaveFrontLoad::Load(const char* path, VertexBufferObjectWit
             else if(f[1] == -1)
             {
                 if(lfinalNormals == NULL)
-                    lfinalNormals=new Vector3[lverticies.size()];
+                    lfinalNormals=new Vector3f[lverticies.size()];
 
                 lindecies.push_back(f[0]);
                 lindecies.push_back(f[3]);
@@ -165,9 +165,9 @@ VertexElementBuffer* WaveFrontLoad::Load(const char* path, VertexBufferObjectWit
             {
 
                 if(lfinalTexCoords == NULL)
-                    lfinalTexCoords= new Vector2[lverticies.size()];
+                    lfinalTexCoords= new Vector2f[lverticies.size()];
                 if(lfinalNormals == NULL)
-                    lfinalNormals= new Vector3[lverticies.size()];
+                    lfinalNormals= new Vector3f[lverticies.size()];
 
 
                 //pass in verticies

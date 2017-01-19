@@ -59,3 +59,10 @@ Matrix4f MatrixHelper::Scale(Vector3f scale) {
     return c;
 }
 
+Matrix4f MatrixHelper::FromQuaternion(Quaternionf q) {
+    Matrix3f temp =  q.toRotationMatrix();
+    Matrix4f final = Matrix4f::Identity();
+    final.block(0,0,3,3) = temp;
+    return final;
+}
+

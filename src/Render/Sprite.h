@@ -46,6 +46,12 @@ void main()\
 gl_FragColor = texture2D(in_BaseImage,p_TexCoords);\
 }"
 #define SPRITE "SMOKE_SPRITE"
+#include <Eigen/Dense>
+
+using Eigen::Vector3f;
+using Eigen::Vector2f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
 
 class VertexElementBuffer;
 class VertexBufferObjectWithSubData;
@@ -73,10 +79,10 @@ public:
 	*sets the clipping rectangle for the sprite
 	*ranged from 0 to 1 based on tex coords
 	**/
-	void SetClippingRectangle(Vector2 pos, Vector2 size);
+	void SetClippingRectangle(Vector2f pos, Vector2f size);
 
-	virtual void Draw(Matrix4x4 transform, Matrix4x4 view);
-	virtual void DepthDraw(Matrix4x4 transform, Matrix4x4 view);
+	virtual void Draw(Matrix4f transform, Matrix4f view);
+	virtual void DepthDraw(Matrix4f transform, Matrix4f view);
 
 };
 

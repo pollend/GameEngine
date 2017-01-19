@@ -9,6 +9,7 @@
 
 
 using Eigen::Matrix4f;
+using Eigen::Matrix3f;
 using Eigen::Vector3f;
 using Eigen::Quaternionf;
 
@@ -24,7 +25,7 @@ class MatrixHelper {
     static Matrix4f Scale(Vector3f scale);
 
     static Matrix4f Scale(float x, float y, float z);
-
+    static Matrix4f FromQuaternion(Quaternionf q);
 };
 
 

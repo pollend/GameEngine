@@ -4,8 +4,9 @@
 #include <VertexObject/VertexBufferObjectWithSubData.h>
 #include <VertexObject/VertexElementBuffer.h>
 #include "Render/RenderObject.h"
+#include <Eigen/Dense>
 
-
+using Eigen::Matrix4f;
 class Model :public RenderObject
 {
 private:
@@ -25,11 +26,11 @@ public:
 	/**
 	*draws the model with the given shader
 	**/
-	virtual void Draw(Matrix4x4 transform, Matrix4x4 view);
+	virtual void Draw(Matrix4f transform, Matrix4f view);
 	/**
 	*draws the model without any from of shading
 	**/
-	virtual void DepthDraw(Matrix4x4 transform, Matrix4x4 view);
+	virtual void DepthDraw(Matrix4f transform, Matrix4f view);
 };
 
 #endif

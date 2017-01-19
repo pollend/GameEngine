@@ -1,17 +1,19 @@
 #include "Node/ObjectNode.h"
+#include "Utility/Matrix/MatrixHelper.h"
 
 ObjectNode::ObjectNode(std::string ID) : Node::Node(ID)
 {
-	Origin = Vector3(0,0,0);
+	Origin = Vector3f(0,0,0);
 	_RenderObject = NULL;
 }
 
-Matrix4x4 ObjectNode::GetMatrix()
+Matrix4f ObjectNode::GetMatrix()
 {
-	Matrix4x4 lscale = Matrix4x4::Scale(Scale.X,Scale.Y,Scale.Z);
-	Matrix4x4 lrotation = Rotation.ConvertToMatrix();
-	Matrix4x4 lposition = Matrix4x4::Translation(Position);
-	Matrix4x4 lorigin = Matrix4x4::Translation(Origin * -1.0f);
+	Matrix4f lscale =  MatrixHelper::Scale(Scale);
+	Matrix4f lrotation = MatrixHelper::FromQuaternion(Rotation);
+
+	Matrix4f lposition = MatrixHelper::Translation(Position);
+	Matrix4f lorigin = MatrixHelper::Translation(Origin.reverse());
 	return lorigin * lscale  * lrotation * lposition;
 }
 ObjectNode::~ObjectNode(void)
@@ -36,9 +38,7 @@ RenderObject * ObjectNode::GetRenderObject()
 
 void ObjectNode::AddAttchmentNodeCallback(std::string nodeType,AttachmentNodeCallback* attachmentNodeCallback)
 {
-	
 	_attachmentNodeSet[nodeType] = attachmentNodeCallback;
-
 }
 
 void ObjectNode::RemoveAndDeleteAttachmentNodeCallback(std::string nodeType)
@@ -53,7 +53,7 @@ std::string ObjectNode::GetType()
 	return "object_node";
 }
 
-void ObjectNode::Draw(Matrix4x4 transform, Matrix4x4 view)
+void ObjectNode::Draw(Matrix4f transform, Matrix4f view)
 {
 	//draws the render object
 	_RenderObject->Draw(transform,view);

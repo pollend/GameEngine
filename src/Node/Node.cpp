@@ -3,8 +3,11 @@
 #include "Utility/Camera.h"
 #include "Node/SharedNodeInfo.h"
 #include "Utility/Matrix/MatrixHelper.h"
-#include <Eigen/Geometry>
 
+
+using Eigen::Vector3f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
 
 Node::Node(std::string ID)
 {
@@ -71,7 +74,7 @@ Matrix4f Node::GetMatrix()
 {
     Matrix4f lscale    = MatrixHelper::Scale(Scale);
     Matrix4f lposition = MatrixHelper::Translation(Position);
-    Matrix4f lrotation = Rotation.toRotationMatrix();
+    Matrix4f lrotation = MatrixHelper::FromQuaternion(Rotation);
 	return lscale  * lrotation * lposition;
 }
 

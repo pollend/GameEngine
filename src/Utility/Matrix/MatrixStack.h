@@ -5,7 +5,6 @@
 #include <Eigen/Dense>
 
 using Eigen::Matrix4f;
-
 class MatrixStack
 {
 private:

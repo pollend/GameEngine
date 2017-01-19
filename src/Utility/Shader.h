@@ -5,12 +5,16 @@
 #include <GL/glew.h>
 #include <map>
 #include <string>
-#include <Utility/Vector/Vector2.h>
-#include <Utility/Vector/Vector3.h>
-#include <Utility/Vector/Vector4.h>
-#include <Utility/Matrix/Matrix4x4.h>
 #include "Source.h"
 #include "Texture.h"
+
+#include <Eigen/Dense>
+
+using Eigen::Vector2f;
+using Eigen::Vector3f;
+using Eigen::Vector4f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
 
 class Shader
 {
@@ -39,17 +43,17 @@ public:
 	void SetUniform1(const GLchar* UniformID, GLfloat value);
 	void SetUniform1(const GLchar* UniformID,const GLfloat value[]);
 
-	void SetUniform2(const GLchar* UniformID, Vector2 value);
-	void SetUniform2(const GLchar* UniformID, Vector2 value[]);
+	void SetUniform2(const GLchar* UniformID, Vector2f value);
+	void SetUniform2(const GLchar* UniformID, Vector2f value[]);
 
-	void SetUniform3(const GLchar* UniformID, Vector3 value);
-	void SetUniform3(const GLchar* UniformID, Vector3 value[]);
+	void SetUniform3(const GLchar* UniformID, Vector3f value);
+	void SetUniform3(const GLchar* UniformID, Vector3f value[]);
 
-	void SetUniform4(const GLchar* UniformID, Vector4 value);
-	void SetUniform4(const GLchar* UniformID, Vector4 value[]);
+	void SetUniform4(const GLchar* UniformID, Vector4f value);
+	void SetUniform4(const GLchar* UniformID, Vector4f value[]);
 
-	void SetMatrix4x4(const GLchar* UniformID,Matrix4x4 m);
-	void SetMatrix4x4(const GLchar* UniformID,Matrix4x4 m[]);
+	void SetMatrix4x4(const GLchar* UniformID,Matrix4f m);
+	void SetMatrix4x4(const GLchar* UniformID,Matrix4f m[]);
 
 	void SetTexture(const GLchar* UniformID,Texture* texture,int index);
 };

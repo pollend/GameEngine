@@ -2,7 +2,6 @@
 #define _RENDER_OBJECT_H
 
 #include <GL/glew.h>
-#include <Utility/Matrix/Matrix4x4.h>
 #include <Utility/Shader.h>
 #include <Node/SceneNode.h>
 
@@ -21,6 +20,12 @@ void main() \
  }"
 #define DEPTH_SHADER "SMOKE_DEPTH_SHADER"
 
+#include <Eigen/Dense>
+
+using Eigen::Vector3f;
+using Eigen::Matrix4f;
+using Eigen::Quaternionf;
+
 class RenderObject
 {
 private:
@@ -31,8 +36,8 @@ public:
 	RenderObject(SceneNode * sceneNode);
 	~RenderObject(void);
 
-	 virtual void Draw(Matrix4x4 transform, Matrix4x4 view) = 0;
-	 virtual void DepthDraw(Matrix4x4 transform, Matrix4x4 view) = 0;
+	 virtual void Draw(Matrix4f transform, Matrix4f view) = 0;
+	 virtual void DepthDraw(Matrix4f transform, Matrix4f view) = 0;
 };
 
 #endif

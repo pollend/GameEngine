@@ -5,7 +5,14 @@
 #include <vector>
 #include <VertexObject/VertexElementBuffer.h>
 #include <VertexObject/VertexBufferObjectWithSubData.h>
+#include <Eigen/Dense>
 
+
+using Eigen::Matrix4f;
+using Eigen::Matrix3f;
+using Eigen::Vector3f;
+using Eigen::Vector2f;
+using Eigen::Quaternionf;
 
 class WaveFrontLoad
 {
