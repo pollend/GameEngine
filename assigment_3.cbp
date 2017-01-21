@@ -151,6 +151,18 @@
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/SharedNodeInfo.h">
          <Option target="app"/>
       </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Framebuffers/Framebuffer.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Framebuffers/Framebuffer.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Framebuffers/GBuffer.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Framebuffers/GBuffer.h">
+         <Option target="app"/>
+      </Unit>
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Model.cpp">
          <Option target="app"/>
       </Unit>
@@ -169,6 +181,18 @@
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Renderer.h">
          <Option target="app"/>
       </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/RenderingProcedure/DeferredProcedure.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/RenderingProcedure/DeferredProcedure.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/RenderingProcedure/RenderingProcedure.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/RenderingProcedure/RenderingProcedure.h">
+         <Option target="app"/>
+      </Unit>
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Render/Sprite.cpp">
          <Option target="app"/>
       </Unit>
@@ -185,6 +209,12 @@
          <Option target="app"/>
       </Unit>
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/SmokeEngine.h">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/FramebufferStorage.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/FramebufferStorage.h">
          <Option target="app"/>
       </Unit>
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Storage/ShaderSourceStorage.cpp">

@@ -41,7 +41,33 @@ Texture::Texture(const char * path)
 	glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,width,height,0,GL_RGBA,GL_UNSIGNED_BYTE,loutput);
 }
 
+Texture::Texture(int width, int height,TextureType textureType)
+{
+	glBindTexture(GL_TEXTURE_2D,_textureID);
+	switch (textureType)
+	{
+		case TEXTURE_R:
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_R16F, width, height, 0, GL_R, GL_FLOAT, NULL);
+			break;
 
+		case TEXTURE_RG:
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RG16F, width, height, 0, GL_RG, GL_FLOAT, NULL);
+			break;
+
+		case TEXTURE_RGB:
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, width, height, 0, GL_RGB, GL_FLOAT, NULL);
+			break;
+
+		case TEXTURE_RGBA:
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_FLOAT, NULL);
+			break;
+	}
+
+	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+
+
+}
 std::string Texture::GetFilename()
 {
 	return _textureName;
@@ -58,8 +84,7 @@ float Texture::GetHeightScale()
 }
 
 
-GLint Texture::GetResourceID()
-{
+GLint Texture::GetResourceID()const {
 	return _textureID;
 }
 

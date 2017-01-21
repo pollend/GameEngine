@@ -5,6 +5,14 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 
+enum TextureType{
+	TEXTURE_R,
+	TEXTURE_RG,
+	TEXTURE_RGB,
+	TEXTURE_RGBA
+};
+
+
 class Texture
 {
 private:
@@ -20,6 +28,7 @@ private:
 
 public:
 	Texture(const char * path);
+	Texture(int width, int height,TextureType textureType);
 	~Texture(void);
 
 	/** 
@@ -27,7 +36,7 @@ public:
 	**/
 	std::string GetFilename();
 
-	GLint GetResourceID();
+	GLint GetResourceID() const;
 
 	/** 
 	*returns the texcoords value minus the buffer area outside of the texture area

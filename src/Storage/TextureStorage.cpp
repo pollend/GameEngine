@@ -17,9 +17,10 @@ TextureStorage::~TextureStorage(void)
 
 }
 
-void TextureStorage::AppendTexture(Texture* texture)
+Texture* TextureStorage::AppendTexture(Texture* texture)
 {
 	_textures.insert(std::pair<std::string,Texture*>(texture->GetFilename(),texture));
+	return texture;
 }
 
 bool TextureStorage::IsTextureUsed(std::string id)

@@ -9,6 +9,7 @@ class TestScene : public SceneNode
 private:
     ObjectNode * _testObject;
     Node * _lightNode;
+
     float x;
 public:
 
@@ -23,4 +24,6 @@ public:
     virtual void UnLoad();
     virtual void Inintalize();
     virtual void InintalizeScene();
+    virtual void Draw(Renderer* renderer);
+
 };

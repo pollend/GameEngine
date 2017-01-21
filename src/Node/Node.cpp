@@ -42,6 +42,18 @@ std::string Node::GetID()
 	return _id;
 }
 
+Matrix4f Node::GetTransformation()
+{
+	Matrix4f lfinal = GetMatrix();
+
+	Node* node = GetParent();
+	if(node != NULL)
+	{
+		lfinal = GetParent()->GetTransformation() * lfinal ;
+	}
+	return lfinal;
+}
+
 void Node::DeleteAllChildren()
 {
 	for(std::list<Node*>::iterator literator =  _children->begin(); literator != _children->end(); ++literator)

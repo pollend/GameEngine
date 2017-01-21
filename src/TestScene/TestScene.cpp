@@ -5,6 +5,7 @@
 #include "SmokeEngine.h"
 #include <Eigen/Dense>
 #include "Utility/Matrix/MatrixHelper.h"
+
 using Eigen::Matrix4f;
 using Eigen::Vector3f;
 using Eigen::Quaternionf;
@@ -94,6 +95,11 @@ void TestScene::Update(float deltaT)
 	_testObject->Rotation = Eigen::AngleAxisf(x, Eigen::Vector3f::UnitY());
 
 	 //__android_log_print(ANDROID_LOG_INFO,"SMOKE_ENGINE","DELTA: \n");
+}
+
+void TestScene::Draw(Renderer *renderer) {
+	renderer->DrawNode(_testObject,mMainCamera);
+
 }
 
 void TestScene::Input(InputEvent* Event)

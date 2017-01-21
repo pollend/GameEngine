@@ -4,6 +4,7 @@
 #include "Utility/Texture.h"
 #include <map>
 #include <string>
+class Texture;
 class TextureStorage
 {
 private:
@@ -15,7 +16,7 @@ public:
 	/** 
 	*append texture to the texturestorage
 	**/
-	void AppendTexture(Texture* texture);
+	Texture* AppendTexture(Texture* texture);
 
 	/** 
 	*removes the texture from the set 

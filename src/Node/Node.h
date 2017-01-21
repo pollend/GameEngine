@@ -41,6 +41,8 @@ class Node
 
 		Node(std::string ID);
 		virtual ~Node(void);
+
+		Matrix4f GetTransformation();
 		
 		/**
 		 * retrieves the matrix for the object

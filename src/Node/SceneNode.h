@@ -8,6 +8,7 @@
 class Node;
 class SharedNodeInfo;
 class SmokeEngine;
+class Renderer;
 class SceneNode
 {
 private:
@@ -41,6 +42,7 @@ public:
 	virtual void UnLoad();
 	virtual void Inintalize() = 0;
 	virtual void InintalizeScene() = 0;
+	virtual void Draw(Renderer* renderer) = 0;
 
 	bool IsLoad();
 

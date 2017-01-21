@@ -17,8 +17,8 @@ private:
 
 public:
 
-	int * Width;
-	int * Height;
+	int Width;
+	int Height;
 
 	ShaderSourceStorage * mShaderSourceStorage;
 	TextureStorage * mTextureStorage;

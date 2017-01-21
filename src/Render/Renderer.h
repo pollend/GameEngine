@@ -15,15 +15,10 @@ private:
 	**/
 	MatrixStack _matrixStack;
 	
-	/**
-	*used to progress down the tree
-	**/
-	void DrawNode(Node * n,SceneNode *scene);
+
 public:
-	/**
-	*draws the scene
-	**/
-	void Draw(SceneNode *scene);
+
+	void DrawNode(Node* node,Camera* camera);
 
 	Renderer(void);
 	~Renderer(void);
