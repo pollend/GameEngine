@@ -1,3 +1,5 @@
+#include <GL/glew.h>
+#include <Render/Framebuffers/Framebuffer.h>
 #include "Render/Renderer.h"
 #include "Node/ObjectNode.h"
 
@@ -23,6 +25,18 @@ Renderer::~Renderer(void)
 //	//DrawNode(scene->mRootOverlayNode);
 //
 //}
+
+void Renderer::ChangeRenderTarget(Framebuffer* framebuffer)
+{
+	framebuffer->Bind();
+}
+
+void Renderer::UnbindRenderTarget()
+{
+	Framebuffer::Unbind();
+}
+
+
 
 void Renderer::DrawNode(Node* node,Camera* camera)
 {

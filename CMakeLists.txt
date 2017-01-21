@@ -82,5 +82,5 @@ FILE(GLOB TINY_OBJ_LOADER "lib/tinyobjloader/tiny_obj_loader.h" "lib/tinyobjload
 MESSAGE(source files: "${SRC} ${HEADER}")
 
 
-add_executable(app ./app/app.cpp ${SRC} ${LODEPNG} ${TINY_OBJ_LOADER} src/Utility/Matrix/MatrixHelper.cpp src/Utility/Matrix/MatrixHelper.h src/Render/RenderingProcedure/RenderingProcedure.cpp src/Render/RenderingProcedure/RenderingProcedure.h src/Render/RenderingProcedure/DeferredProcedure.cpp src/Render/RenderingProcedure/DeferredProcedure.h src/Storage/FramebufferStorage.cpp src/Storage/FramebufferStorage.h src/Render/Framebuffers/Framebuffer.cpp src/Render/Framebuffers/Framebuffer.h src/Render/Framebuffers/GBuffer.cpp src/Render/Framebuffers/GBuffer.h)
+add_executable(app ./app/app.cpp ${SRC} ${LODEPNG} ${TINY_OBJ_LOADER} src/Utility/Matrix/MatrixHelper.cpp src/Utility/Matrix/MatrixHelper.h src/Render/RenderingProcedure/RenderingProcedure.cpp src/Render/RenderingProcedure/RenderingProcedure.h src/Storage/FramebufferStorage.cpp src/Storage/FramebufferStorage.h src/Render/Framebuffers/Framebuffer.cpp src/Render/Framebuffers/Framebuffer.h src/TestScene/DeferredScene.cpp src/TestScene/DeferredScene.h src/TestScene/PostProcessing.cpp src/TestScene/PostProcessing.h)
 target_link_libraries (app ${Boost_LOG_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})

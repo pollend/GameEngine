@@ -43,13 +43,20 @@ Model::~Model(void)
 void Model::Draw(Matrix4f transform, Matrix4f view)
 {
 	mShader->BindShader();
-
     _vertexArrayObject->Bind();
     _vertexBufferObject->Bind();
 
 	mShader->SetMatrix4x4("in_Transform",transform);
 	mShader->SetMatrix4x4("in_View",view);
 	glDrawElements(GL_TRIANGLES,_vertexArrayObject->GetNumberOfIndecies(),GL_UNSIGNED_SHORT,0);
+
+    mShader->Unbind();
+    _vertexArrayObject->Unbind();
+    _vertexBufferObject->Unbind();
+
+
+
+
 }
 
 void Model::DepthDraw(Matrix4f transform, Matrix4f view)

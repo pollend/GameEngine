@@ -33,6 +33,7 @@ public:
 	void IntalizeShader();
 
 	void BindShader();
+	void UnbindShader();
 	static void Unbind();
 
 	void SetAttrib(int index, const GLchar* attrib);

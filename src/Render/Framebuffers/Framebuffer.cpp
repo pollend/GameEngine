@@ -3,8 +3,6 @@
 //
 #include <GL/glew.h>
 #include "Framebuffer.h"
-#include <SmokeEngine.h>
-
 
 
 Framebuffer::Framebuffer() {

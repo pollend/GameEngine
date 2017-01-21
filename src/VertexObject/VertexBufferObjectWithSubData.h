@@ -106,6 +106,8 @@ public:
 	 *binds the buffer object
 	 **/
 	virtual void Bind();
+
+	void Unbind();
 };
 
 #endif

@@ -43,9 +43,7 @@ void SmokeEngine::Draw()
 {
 	glEnable(GL_DEPTH_TEST);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.0f,1.0f,1.0f,1.0f);
-//	if(mSceneManager->GetActiveSceneNode()->IsLoad())
-//		mRenderer->Draw(mSceneManager->GetActiveSceneNode());
+	glClearColor(1.0f,1.0f,1.0f,1.0f);
 
 	mSceneManager->GetActiveSceneNode()->Draw(mRenderer);
 
@@ -53,7 +51,7 @@ void SmokeEngine::Draw()
 	GLenum err;
 	while((err = glGetError()) != GL_NO_ERROR)
 	{
-		BOOST_LOG_TRIVIAL(error) <<"GL_ERROR:"<< err;
+		BOOST_LOG_TRIVIAL(error) <<"GL_ERROR:"<< err << "("<< gluErrorString(err) << ")";
 	}
 }
 

@@ -22,6 +22,8 @@ public:
 	*binders the vertex array Object
 	**/
 	virtual void Bind();
+	void Unbind();
+
 
 	/**
 	*returns the number of indecies

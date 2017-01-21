@@ -21,10 +21,16 @@ void VertexElementBuffer::Bind()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,*_id);
 }
 
+void VertexElementBuffer::Unbind() {
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,0);
+}
+
 int VertexElementBuffer::GetNumberOfIndecies()
 {
 	return _numberOfIndecies;
 }
+
+
 
 VertexElementBuffer::~VertexElementBuffer(void)
 {

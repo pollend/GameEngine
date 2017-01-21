@@ -1,4 +1,4 @@
-varying mediump vec2 p_TexCoords;
+varying vec2 p_TexCoords;
 void main()
 {
 highp vec2 z;

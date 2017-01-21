@@ -43,28 +43,37 @@ Texture::Texture(const char * path)
 
 Texture::Texture(int width, int height,TextureType textureType)
 {
-	glBindTexture(GL_TEXTURE_2D,_textureID);
-	switch (textureType)
-	{
-		case TEXTURE_R:
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_R16F, width, height, 0, GL_R, GL_FLOAT, NULL);
-			break;
+	glGenTextures(1, &_textureID);
+	glBindTexture(GL_TEXTURE_2D, _textureID);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 800, 600, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glBindTexture(GL_TEXTURE_2D, 0);
 
-		case TEXTURE_RG:
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RG16F, width, height, 0, GL_RG, GL_FLOAT, NULL);
-			break;
 
-		case TEXTURE_RGB:
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, width, height, 0, GL_RGB, GL_FLOAT, NULL);
-			break;
-
-		case TEXTURE_RGBA:
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_FLOAT, NULL);
-			break;
-	}
-
-	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+//	glGenTextures(1, (&_textureID));
+//	glBindTexture(GL_TEXTURE_2D,_textureID);
+//	switch (textureType)
+//	{
+//		case TEXTURE_R:
+//			glTexImage2D(GL_TEXTURE_2D, 0, GL_R16F, width, height, 0, GL_R, GL_FLOAT, NULL);
+//			break;
+//
+//		case TEXTURE_RG:
+//			glTexImage2D(GL_TEXTURE_2D, 0, GL_RG16F, width, height, 0, GL_RG, GL_FLOAT, NULL);
+//			break;
+//
+//		case TEXTURE_RGB:
+//			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, width, height, 0, GL_RGB, GL_FLOAT, NULL);
+//			break;
+//
+//		case TEXTURE_RGBA:
+//			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+//			break;
+//	}
+//	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 800, 600, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+//	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+//	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
 
 
 }
@@ -84,7 +93,7 @@ float Texture::GetHeightScale()
 }
 
 
-GLint Texture::GetResourceID()const {
+GLint Texture::GetResourceID() {
 	return _textureID;
 }
 

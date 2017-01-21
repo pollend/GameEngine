@@ -36,7 +36,7 @@ public:
 	**/
 	std::string GetFilename();
 
-	GLint GetResourceID() const;
+	GLint GetResourceID() ;
 
 	/** 
 	*returns the texcoords value minus the buffer area outside of the texture area

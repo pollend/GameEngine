@@ -11,10 +11,10 @@ Shader::Shader(void)
 
 void Shader::_useShader()
 {
-	if(_shaderProgram != Shader::ActiveProgram )
+	//if(_shaderProgram != Shader::ActiveProgram ) {
 		glUseProgram(_shaderProgram);
-	
-	Shader::ActiveProgram = _shaderProgram;
+		//Shader::ActiveProgram = _shaderProgram;
+	//}
 }
 
 Shader::~Shader(void)
@@ -233,7 +233,7 @@ void Shader::BindShader()
 void Shader::Unbind()
 {
 	glUseProgram(0);
-	Shader::ActiveProgram = 0;
+	//Shader::ActiveProgram = 0;
 
 }
 

@@ -198,6 +198,17 @@ void VertexBufferObjectWithSubData::Bind()
 
 }
 
+
+void VertexBufferObjectWithSubData::Unbind()
+{
+	for(int x =0; x < _data.size(); x++)
+	{
+		glDisableVertexAttribArray(x);
+	}
+	glBindBuffer(GL_ARRAY_BUFFER,0);
+
+}
+
 int VertexBufferObjectWithSubData::GetSize()
 {
 	return _data.size();

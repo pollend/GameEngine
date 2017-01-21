@@ -2,6 +2,8 @@
 #include <GL/glut.h>
 #include <SmokeEngine.h>
 #include <TestScene/TestScene.h>
+#include <TestScene/PostProcessing.h>
+
 
 SmokeEngine * engine;
 
@@ -16,7 +18,7 @@ int main(int argc, char** argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowPosition(80, 80);
-	glutInitWindowSize((GLint)800, (GLint)600);
+	glutInitWindowSize((GLint)1280, (GLint)720);
 	glutCreateWindow("Teapot");
 	init();
 	glutReshapeFunc(reshape);
@@ -30,7 +32,8 @@ int main(int argc, char** argv) {
 void init() {
 	glewInit();
 	engine = new SmokeEngine();
-	engine->mSceneManager->AppendScene("main",new TestScene(engine,new Camera(3.14f/2.0f,1,.5f,20)));
+	//engine->mSceneManager->AppendScene("main",new TestScene(engine,new Camera(3.14f/2.0f,1,.5f,20)));
+	engine->mSceneManager->AppendScene("main",new PostProcessing(engine,new Camera(3.14f/2.0f,1,.5f,20)));
 	engine->mSceneManager->SetActiveScene("main");
 
 }
@@ -43,6 +46,7 @@ void display() {
 
 	engine->Step();
 	engine->Draw();
+
 	glutSwapBuffers();
 	glutPostRedisplay();
 }
