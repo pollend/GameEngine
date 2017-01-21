@@ -15,6 +15,12 @@ Renderer::~Renderer(void)
 
 }
 
+void Renderer::Clear() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    glClearColor(1.0f,1.0f,1.0f,1.0f);
+    glEnable(GL_DEPTH_TEST);
+}
+
 
 //
 //void Renderer::Draw(SceneNode* scene)
@@ -29,6 +35,7 @@ Renderer::~Renderer(void)
 void Renderer::ChangeRenderTarget(Framebuffer* framebuffer)
 {
 	framebuffer->Bind();
+    Clear();
 }
 
 void Renderer::UnbindRenderTarget()

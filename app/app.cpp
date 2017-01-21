@@ -11,7 +11,7 @@ SmokeEngine * engine;
 void display();
 void init();
 void reshape(GLint width, GLint height);
-
+void updateGame();
 // Initializes GLUT, the display mode, and main window; registers callbacks;
 // does application initialization; enters the main event loop.
 int main(int argc, char** argv) {
@@ -19,12 +19,19 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowPosition(80, 80);
 	glutInitWindowSize((GLint)1280, (GLint)720);
-	glutCreateWindow("Teapot");
+    glutCreateWindow("Teapot");
 	init();
 	glutReshapeFunc(reshape);
+
+	glutIdleFunc(updateGame);
 	glutDisplayFunc(display);
 	glutMainLoop();
 	return 0;
+}
+void updateGame()
+{
+	engine->Step();
+	glutPostRedisplay();
 }
 
 
@@ -32,7 +39,9 @@ int main(int argc, char** argv) {
 void init() {
 	glewInit();
 	engine = new SmokeEngine();
-	//engine->mSceneManager->AppendScene("main",new TestScene(engine,new Camera(3.14f/2.0f,1,.5f,20)));
+    engine->SetSize(1280,720);
+
+    //engine->mSceneManager->AppendScene("main",new TestScene(engine,new Camera(3.14f/2.0f,1,.5f,20)));
 	engine->mSceneManager->AppendScene("main",new PostProcessing(engine,new Camera(3.14f/2.0f,1,.5f,20)));
 	engine->mSceneManager->SetActiveScene("main");
 
@@ -44,11 +53,9 @@ void init() {
 // Clears the window and draws the tetrahedron.
 void display() {
 
-	engine->Step();
 	engine->Draw();
 
 	glutSwapBuffers();
-	glutPostRedisplay();
 }
 
 
@@ -56,6 +63,6 @@ void display() {
 //reshape screen
 void reshape(GLint width, GLint height)
 {
-	glViewport(0, 0, width, height);
+    glutReshapeWindow( 1280, 720);
 
 }

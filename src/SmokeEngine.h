@@ -14,11 +14,10 @@ class SmokeEngine
 {
 private:
 	 double _time;
-
+	int _width;
+	int _height;
 public:
 
-	int Width;
-	int Height;
 
 	ShaderSourceStorage * mShaderSourceStorage;
 	TextureStorage * mTextureStorage;
@@ -26,9 +25,13 @@ public:
 
 	SceneManager * mSceneManager;
 	Renderer* mRenderer;
-	
+
+	void SetSize(int width, int height);
 	void Step();
 	void Draw();
+
+	int GetWidth();
+	int GetHeight();
 
 	SmokeEngine();
 	~SmokeEngine(void);

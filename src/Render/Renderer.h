@@ -18,7 +18,7 @@ private:
 	MatrixStack _matrixStack;
 
 public:
-
+	void Clear();
 	void DrawNode(Node* node,Camera* camera);
 	void ChangeRenderTarget(Framebuffer* framebuffer);
 	void UnbindRenderTarget();

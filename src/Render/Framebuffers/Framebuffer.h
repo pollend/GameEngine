@@ -27,16 +27,19 @@ public:
         GLuint attachments[size];
         for(int i = 0; i < size; i++)
         {
-            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D,textures[i]->GetResourceID(), 0);
-            attachments[i] = GL_COLOR_ATTACHMENT0 ;
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D + i,textures[i]->GetResourceID(), 0);
+            attachments[i] = GL_COLOR_ATTACHMENT0 + i;
         }
 
-        glDrawBuffers(size,attachments);
+       glDrawBuffers(size,attachments);
         if(useDepth)
         {
             glGenRenderbuffers(1,&_depthRenderBuffer);
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, (GLsizei) smokeEngine->Width, (GLsizei) smokeEngine->Height);
-            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
+            glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, smokeEngine->GetWidth(),  smokeEngine->GetHeight());
+            glBindRenderbuffer(GL_RENDERBUFFER, 0);
+            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
+
         }
         else _depthRenderBuffer = 0;
 

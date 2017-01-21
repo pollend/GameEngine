@@ -57,8 +57,8 @@ void PostProcessing::Load()
     if(!this->mSmokeEngine->mTextureStorage->IsTextureUsed("assets/test-pattern.png"))
         this->mSmokeEngine->mTextureStorage->AppendTexture( new Texture("assets/test-pattern.png"));
 
-    _frame = new Texture(mSmokeEngine->Width,mSmokeEngine->Height,TEXTURE_RGBA);
-    _buffer = new Framebuffer(mSmokeEngine,boost::array<Texture*,1>{_frame}, false);
+    _frame = new Texture(1280,720,TEXTURE_RGBA);
+    _buffer = new Framebuffer(mSmokeEngine,boost::array<Texture*,1>{_frame}, true);
 
     _procedure->GetShader()->SetTexture("in_BaseImage",_frame,0);
 
@@ -122,14 +122,8 @@ void PostProcessing::Update(float deltaT)
 
 void PostProcessing::Draw(Renderer *renderer) {
     renderer->ChangeRenderTarget(_buffer);
-    glClearColor(0.1f, 0.1f, 1.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
     renderer->DrawNode(_testObject,mMainCamera);
-
     renderer->UnbindRenderTarget();
-    glClearColor(1.0f, 0.1f, 0.1f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     _procedure->Draw();
 
 

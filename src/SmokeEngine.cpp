@@ -19,11 +19,24 @@ SmokeEngine::SmokeEngine()
 
 }
 
-
+void SmokeEngine::SetSize(int width, int height) {
+    _width = width;
+    _height = height;
+}
 
 SmokeEngine::~SmokeEngine(void)
 {
 
+}
+
+
+int SmokeEngine::GetWidth()
+{
+    return  _width;
+}
+int SmokeEngine::GetHeight()
+{
+    return _height;
 }
 
 
@@ -41,10 +54,8 @@ void SmokeEngine::Step()
 
 void SmokeEngine::Draw()
 {
-	glEnable(GL_DEPTH_TEST);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(1.0f,1.0f,1.0f,1.0f);
 
+    mRenderer->Clear();
 	mSceneManager->GetActiveSceneNode()->Draw(mRenderer);
 
 
