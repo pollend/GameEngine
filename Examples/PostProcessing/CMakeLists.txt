@@ -68,19 +68,10 @@ include_directories ( "${EIGEN3_INCLUDE_DIR}" )
 #########################################################
 
 include_directories(${Boost_INCLUDE_DIR})
-include_directories(src/include)
-# include_directories(lib/qvm/include)
-include_directories(lib/lodepng)
-include_directories(lib/tinyobjloader)
+include_directories(./)
+include_directories (./../../src/include/ )
+LINK_DIRECTORIES(./../../bin)
 
 file(COPY assets DESTINATION bin)
-
-FILE(GLOB_RECURSE SRC "src/source/*.cpp" )
-FILE(GLOB LODEPNG "lib/lodepng/lodepng.h" "lib/lodepng/lodepng.cpp")
-FILE(GLOB TINY_OBJ_LOADER "lib/tinyobjloader/tiny_obj_loader.h" "lib/tinyobjloader/tiny_obj_loader.cc")
-
-MESSAGE(source files: "${SRC} ${HEADER}")
-
-add_library(SmokeEngine SHARED ${SRC} ${LODEPNG} ${TINY_OBJ_LOADER} Examples/PostProcessing/PostProcessingDemo.cpp Examples/PostProcessing/ExampleSceneOne.cpp Examples/PostProcessing/ExampleSceneOne.h)
-#add_executable(app ./app/app.cpp ${SRC} ${LODEPNG} ${TINY_OBJ_LOADER})
-#target_link_libraries (app ${Boost_LOG_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
+add_executable(Demo ./PostProcessingDemo.cpp ./ExampleSceneOne.h ./ExampleSceneOne.cpp JulianSet.h JulianSet.cpp)
+target_link_libraries (Demo SmokeEngine ${Boost_LOG_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})

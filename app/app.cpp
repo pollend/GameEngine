@@ -1,8 +1,8 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
-#include <SmokeEngine.h>
+#include <include/SmokeEngine.h>
 #include <TestScene/TestScene.h>
-#include <TestScene/JulianSet.h>
+#include "../Examples/PostProcessing/JulianSet.h"
 #include <TestScene/PostProcessing.h>
 
 
@@ -25,8 +25,10 @@ int main(int argc, char** argv) {
 	engine = new SmokeEngine();
 	engine->SetSize(1280,720);
 
-	engine->mSceneManager->AppendScene("main",new PostProcessing(engine));
-	engine->mSceneManager->SetActiveScene("main");
+	//engine->mSceneManager->AppendScene("main",new PostProcessing(engine));
+    engine->mSceneManager->AppendScene("main",new TestScene(engine));
+
+    engine->mSceneManager->SetActiveScene("main");
 
 	glutReshapeFunc(reshape);
 	glutIdleFunc(updateGame);
