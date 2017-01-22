@@ -11,14 +11,14 @@ VertexElementBuffer::VertexElementBuffer(const GLushort data[], int size) : Vert
 	{
 		_data[i] = data[i];
 	}
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,*_id);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,_vbo);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(GLushort) * size,_data,GL_STATIC_DRAW);
 }
 
 
 void VertexElementBuffer::Bind()
 {
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,*_id);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,_vbo);
 }
 
 void VertexElementBuffer::Unbind() {

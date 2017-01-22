@@ -1,6 +1,7 @@
 #include "Utility/Shader.h"
 #include "Utility/Source.h"
 #include "Utility/Texture.h"
+#include <boost/log/trivial.hpp>
 
 Shader::Shader(void)
 {
@@ -30,7 +31,24 @@ void Shader::AttachSource(Source* source)
 void Shader::IntalizeShader()
 {
 	glLinkProgram(_shaderProgram);
-	glUseProgram(_shaderProgram);
+
+	GLint lcompile = 0;
+	glGetProgramiv(_shaderProgram, GL_LINK_STATUS, &lcompile);
+	if (!lcompile) {
+		GLint linfoLen = 0;
+		glGetProgramiv(_shaderProgram, GL_INFO_LOG_LENGTH, &linfoLen);
+		if (linfoLen) {
+			char* lbuffer = (char*) malloc(linfoLen);
+			if (lbuffer) {
+				glGetProgramInfoLog(_shaderProgram, linfoLen, NULL, lbuffer);
+				BOOST_LOG_TRIVIAL(error) << "could not compile shader: " << _shaderProgram;
+				BOOST_LOG_TRIVIAL(error) << lbuffer;
+				free(lbuffer);
+			}
+			glDeleteProgram(_shaderProgram);
+		}
+
+	}
 }
 
 void Shader::SetAttrib(int index, const GLchar* attrib)
@@ -143,25 +161,6 @@ void Shader::SetTexture(const GLchar* UniformID,Texture* texture,int index)
 void Shader::SetMatrix4x4(const GLchar* UniformID, Matrix4f m)
 {
 	GLfloat lvalue[16];
-//	lvalue[0] = m.m11;
-//	lvalue[1] = m.m21;
-//	lvalue[2] = m.m31;
-//	lvalue[3] = m.m41;
-//
-//	lvalue[4] = m.m12;
-//	lvalue[5] = m.m22;
-//	lvalue[6] = m.m32;
-//	lvalue[7] = m.m42;
-//
-//	lvalue[8] = m.m13;
-//	lvalue[9] = m.m23;
-//	lvalue[10] = m.m33;
-//	lvalue[11] = m.m43;
-//
-//	lvalue[12] = m.m14;
-//	lvalue[13] = m.m24;
-//	lvalue[14] = m.m34;
-//	lvalue[15] = m.m44;
 
 	lvalue[0] = m(0,0);
 	lvalue[1] = m(0,1);

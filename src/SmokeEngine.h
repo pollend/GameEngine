@@ -4,9 +4,6 @@
 #include <GL/glew.h>
 #include <time.h>
 #include <ctime>
-#include <Storage/ShaderSourceStorage.h>
-#include <Storage/TextureStorage.h>
-#include <Storage/VertexBufferStorage.h>
 #include <Render/Renderer.h>
 #include "SceneManager.h"
 
@@ -17,11 +14,6 @@ private:
 	int _width;
 	int _height;
 public:
-
-
-	ShaderSourceStorage * mShaderSourceStorage;
-	TextureStorage * mTextureStorage;
-	VertexBufferStorage * mVertexBufferStorage;
 
 	SceneManager * mSceneManager;
 	Renderer* mRenderer;

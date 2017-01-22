@@ -1,29 +1,26 @@
 //
-// Created by michaelpollind on 1/20/17.
+// Created by michaelpollind on 1/21/17.
 //
-#ifndef _POSTPROCESSING_H
-#define _POSTPROCESSING_H
+
+#ifndef _JULIANSET_H
+#define _JULIANSET_H
+
 #include <Node/ObjectNode.h>
 #include <Render/RenderingProcedure/RenderingProcedure.h>
 #include "Node/SceneNode.h"
 #include <Render/Framebuffers/Framebuffer.h>
 #include <Render/Model.h>
 
-class PostProcessing  : public SceneNode
+class JulianSet : public SceneNode
 {
 private:
-    ObjectNode * _testObject;
-    Node * _lightNode;
+
     RenderingProcedure* _procedure;
-    Texture* _frame;
-    Framebuffer* _buffer;
-    Model* _model;
-    float x;
 public:
 
 
-    PostProcessing(SmokeEngine* smokeEngine,Camera * camera);
-    ~PostProcessing(void);
+    JulianSet(SmokeEngine* smokeEngine,Camera * camera);
+    ~JulianSet(void);
 
     virtual void Update(float deltaT);
     virtual void Input(InputEvent* Event) ;
@@ -35,4 +32,4 @@ public:
 };
 
 
-#endif //ASSIGMENT_3_POSTPROCESSING_H
+#endif //ASSIGMENT_3_JULIANSET_H

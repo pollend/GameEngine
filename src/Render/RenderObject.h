@@ -29,7 +29,8 @@ using Eigen::Quaternionf;
 class RenderObject
 {
 private:
-	Shader * _depthShader;
+	Shader _depthShader;
+
 public:
 	Shader * mShader;
 	

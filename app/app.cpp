@@ -2,6 +2,7 @@
 #include <GL/glut.h>
 #include <SmokeEngine.h>
 #include <TestScene/TestScene.h>
+#include <TestScene/JulianSet.h>
 #include <TestScene/PostProcessing.h>
 
 
@@ -31,7 +32,6 @@ int main(int argc, char** argv) {
 void updateGame()
 {
 	engine->Step();
-	glutPostRedisplay();
 }
 
 
@@ -41,8 +41,9 @@ void init() {
 	engine = new SmokeEngine();
     engine->SetSize(1280,720);
 
-    //engine->mSceneManager->AppendScene("main",new TestScene(engine,new Camera(3.14f/2.0f,1,.5f,20)));
+   // engine->mSceneManager->AppendScene("main",new TestScene(engine,new Camera(3.14f/2.0f,1,.5f,20)));
 	engine->mSceneManager->AppendScene("main",new PostProcessing(engine,new Camera(3.14f/2.0f,1,.5f,20)));
+	//engine->mSceneManager->AppendScene("main",new JulianSet(engine,new Camera(3.14f/2.0f,1,.5f,20)));
 	engine->mSceneManager->SetActiveScene("main");
 
 }
@@ -56,6 +57,7 @@ void display() {
 	engine->Draw();
 
 	glutSwapBuffers();
+	glutPostRedisplay();
 }
 
 

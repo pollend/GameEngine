@@ -7,10 +7,8 @@ Sprite::Sprite(SceneNode * sceneNode,Source * fragmentShader) : RenderObject(sce
 {
 	_sceneNode = sceneNode;
 
-	if(!sceneNode->mSmokeEngine->mShaderSourceStorage->IsSourceUsed(SPRITE,GL_VERTEX_SHADER))
-		sceneNode->mSmokeEngine->mShaderSourceStorage->AppendSource(SPRITE,new Source(SPRITE_VERTEX_SHADER,GL_VERTEX_SHADER));
-
-	this->mShader->AttachSource(sceneNode->mSmokeEngine->mShaderSourceStorage->GetSource(SPRITE,GL_VERTEX_SHADER));
+	_vertexSource = new Source(SPRITE_VERTEX_SHADER,GL_VERTEX_SHADER);
+	this->mShader->AttachSource(_vertexSource);
 	this->mShader->AttachSource(fragmentShader);
 
 
@@ -21,13 +19,11 @@ Sprite::Sprite(SceneNode * sceneNode,Texture * texture) :  RenderObject(sceneNod
 {
 	_sceneNode = sceneNode;
 
-	if(!sceneNode->mSmokeEngine->mShaderSourceStorage->IsSourceUsed(SPRITE,GL_VERTEX_SHADER))
-		sceneNode->mSmokeEngine->mShaderSourceStorage->AppendSource(SPRITE,new Source(SPRITE_VERTEX_SHADER,GL_VERTEX_SHADER));
-	if(!sceneNode->mSmokeEngine->mShaderSourceStorage->IsSourceUsed(SPRITE,GL_FRAGMENT_SHADER))
-		sceneNode->mSmokeEngine->mShaderSourceStorage->AppendSource(SPRITE,new Source(SPRITE_FRAGMENT_SHADER,GL_FRAGMENT_SHADER));
+	_vertexSource = new Source(SPRITE_VERTEX_SHADER,GL_VERTEX_SHADER);
+	_fragmentSource = new Source(SPRITE_FRAGMENT_SHADER,GL_FRAGMENT_SHADER);
 
-	this->mShader->AttachSource(sceneNode->mSmokeEngine->mShaderSourceStorage->GetSource(SPRITE,GL_VERTEX_SHADER));
-	this->mShader->AttachSource(sceneNode->mSmokeEngine->mShaderSourceStorage->GetSource(SPRITE,GL_FRAGMENT_SHADER));
+	this->mShader->AttachSource(_vertexSource);
+	this->mShader->AttachSource(_fragmentSource);
 	
 	//set the base image of the sprite
 	this->mShader->SetTexture("in_BaseImage",texture,0);
@@ -38,31 +34,22 @@ Sprite::Sprite(SceneNode * sceneNode,Texture * texture) :  RenderObject(sceneNod
 
 void Sprite::_initialize(SceneNode * sceneNode)
 {
+	GLushort ldata[] = SPRITE_INDECIES;
+	this->mVertexArrayObject = new VertexElementBuffer(ldata, SPRITE_INDECIES_SIZE);
 
-	if(!sceneNode->mSmokeEngine->mVertexBufferStorage->IsVertexArrayObjectExist(SPRITE))
+	VertexBufferObjectWithSubData * lvertexObject = new VertexBufferObjectWithSubData();
 	{
-		GLushort ldata[] = SPRITE_INDECIES;
-		sceneNode->mSmokeEngine->mVertexBufferStorage->AppendVertexObject(SPRITE,new VertexElementBuffer(ldata, SPRITE_INDECIES_SIZE));
-	}
-	if(!sceneNode->mSmokeEngine->mVertexBufferStorage->IsVertexObjectWithSubDataExist(SPRITE))
-	{
-		VertexBufferObjectWithSubData * lvertexObject = new VertexBufferObjectWithSubData();
-		{
-			GLfloat ldata [] = SPRITE_VERTICIES;
-			lvertexObject->AddSubData(new VertexBufferObjectWithSubData::SubData(ldata,SPRITE_VERTICIES_SIZE,3));
-		}
-
-		{
-			GLfloat ldata [] = {0,1,2,3};
-			lvertexObject->AddSubData(new VertexBufferObjectWithSubData::SubData(ldata,4,1));
-		}
-		lvertexObject->IntalizeBuffer();
-		sceneNode->mSmokeEngine->mVertexBufferStorage->AppendVertexObject(SPRITE,lvertexObject);
+		GLfloat ldata [] = SPRITE_VERTICIES;
+		lvertexObject->AddSubData(new VertexBufferObjectWithSubData::SubData(ldata,SPRITE_VERTICIES_SIZE,3));
 	}
 
-	this->mVertexArrayObject = sceneNode->mSmokeEngine->mVertexBufferStorage->GetVertexArryObject(SPRITE);
-	this->mVertexSubData = sceneNode->mSmokeEngine->mVertexBufferStorage->GetVertexObjectWithSubData(SPRITE);
-		
+	{
+		GLfloat ldata [] = {0,1,2,3};
+		lvertexObject->AddSubData(new VertexBufferObjectWithSubData::SubData(ldata,4,1));
+	}
+	lvertexObject->IntalizeBuffer();
+	this->mVertexSubData = lvertexObject;
+
 	this->mShader->SetAttrib(0,"in_Verts");
 	this->mShader->SetAttrib(1,"in_Index");
 

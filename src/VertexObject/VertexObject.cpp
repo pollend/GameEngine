@@ -2,12 +2,12 @@
 
 VertexObject::VertexObject(void)
 {
-	_id = new GLuint();
-	glGenBuffers(1,_id);
+	glGenBuffers(1,&_vbo);
+	glGenVertexArrays(1,&_vao);
 }
 
 VertexObject::~VertexObject(void)
 {
-	glDeleteBuffers(1,_id);
-	delete(_id);
+	glDeleteBuffers(1,&_vbo);
+	glDeleteVertexArrays(1,&_vao);
 }

@@ -7,7 +7,8 @@ class VertexObject
 {
 protected:
 
-	GLuint* _id;
+	GLuint _vbo;
+	GLuint _vao;
 public:
 	VertexObject(void);
 	virtual ~VertexObject(void);

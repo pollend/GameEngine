@@ -15,7 +15,6 @@ SceneManager::~SceneManager(void)
 
 void SceneManager::AppendScene(std::string id, SceneNode * node)
 {
-	node->Inintalize();
 	_sceneNodes.insert(std::pair<std::string,SceneNode*>(id,node));
 }
 
@@ -51,9 +50,10 @@ void  SceneManager::DeleteScene(std::string id)
 
 void SceneManager::SetActiveScene(std::string id)
 {
+
 	if(!_sceneNodes[id]->IsLoad())
 		_sceneNodes[id]->Load();
-	_sceneNodes[id]->InintalizeScene();
+	_sceneNodes[id]->Initialize();
 
 	_activeScene = _sceneNodes[id];
 

@@ -22,8 +22,7 @@ public:
 
     virtual void Load();
     virtual void UnLoad();
-    virtual void Inintalize();
-    virtual void InintalizeScene();
+    virtual void Initialize();
     virtual void Draw(Renderer* renderer);
 
 };

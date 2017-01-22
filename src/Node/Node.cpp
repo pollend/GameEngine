@@ -11,7 +11,6 @@ using Eigen::Quaternionf;
 
 Node::Node(std::string ID)
 {
-
 	_parentNode = NULL;
 
 	Position = Vector3f();
@@ -130,18 +129,6 @@ std::list<Node*>*  Node::GetChildren()
 	return _children;
 }
 
-Matrix4f Node::GetLocationOfNode(Camera* cam)
-{
-	MatrixStack lstack = MatrixStack();
-	Node* llastParent = this;
-	while (llastParent != NULL)
-	{
-		lstack.Push(llastParent->GetMatrix());
-		llastParent = llastParent->GetParent();
-	}
-	lstack.Push(cam->GetMatrix());
-	return lstack.GetReverseTransformMatrix();
-}
 
 void Node::Update()
 {

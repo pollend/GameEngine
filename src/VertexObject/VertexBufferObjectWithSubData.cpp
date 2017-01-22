@@ -163,12 +163,10 @@ void VertexBufferObjectWithSubData::IntalizeBuffer()
 	GLsizeiptr lsize = 0;
 	for(int x =0; x < _data.size(); x++)
 	{
-		BOOST_LOG_TRIVIAL(trace) << _data[x]->GetSize();
 		lsize += _data[x]->GetSize();
 	}
-	BOOST_LOG_TRIVIAL(trace) << lsize;
-
-	glBindBuffer(GL_ARRAY_BUFFER,*_id);
+	glBindVertexArray(_vao);
+	glBindBuffer(GL_ARRAY_BUFFER,_vbo);
 	glBufferData(GL_ARRAY_BUFFER,lsize,NULL, GL_STATIC_DRAW );
 
 	GLsizeiptr loffset = 0;
@@ -178,6 +176,16 @@ void VertexBufferObjectWithSubData::IntalizeBuffer()
 		loffset += _data[x]->GetSize();
 	
 	}
+
+	//setup VAO
+	loffset = 0;
+	for(int x =0; x < _data.size(); x++)
+	{
+		glEnableVertexAttribArray(x);
+		glVertexAttribPointer(x,_data[x]->GetVectorType(),GL_FLOAT,GL_FALSE,0,(void*)loffset);
+		loffset += _data[x]->GetSize();
+	}
+	glBindBuffer(GL_ARRAY_BUFFER,0);
 }
 
 void VertexBufferObjectWithSubData::AddSubData(SubData* subData)
@@ -187,24 +195,12 @@ void VertexBufferObjectWithSubData::AddSubData(SubData* subData)
 
 void VertexBufferObjectWithSubData::Bind()
 {
-	glBindBuffer(GL_ARRAY_BUFFER,*_id);
-	GLsizeiptr loffset = 0;
-	for(int x =0; x < _data.size(); x++)
-	{
-		glEnableVertexAttribArray(x);
-		glVertexAttribPointer(x,_data[x]->GetVectorType(),GL_FLOAT,GL_FALSE,0,(void*)loffset);
-		loffset += _data[x]->GetSize();
-	}
-
+	glBindVertexArray(_vao);
 }
 
 
 void VertexBufferObjectWithSubData::Unbind()
 {
-	for(int x =0; x < _data.size(); x++)
-	{
-		glDisableVertexAttribArray(x);
-	}
 	glBindBuffer(GL_ARRAY_BUFFER,0);
 
 }

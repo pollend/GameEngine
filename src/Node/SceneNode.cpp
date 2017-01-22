@@ -23,12 +23,7 @@ SceneNode::SceneNode(SmokeEngine* smokeEngine,Camera * camera)
 
 	mRootSceneNode = new RootNode(this,_sharedNodeInfo,"ROOT_SCENE");
 	mRootOverlayNode  = new RootNode(this,_sharedNodeInfo,"ROOT_OVERLAY");
-
-	mViewStorage = new ViewStorage();
-
 	mMainCamera = camera;
-
-	mViewStorage->AddCamera("MAIN_CAMERA",mMainCamera);
 }
 void SceneNode::Load()
 {

@@ -85,11 +85,7 @@ class Node
 		 **/
 		void DeleteAllChildren();
 
-		/**
-		 * gets the location of the node relative to the camera
-		 **/
-        Matrix4f GetLocationOfNode(Camera* cam);
-        
+
 		/**
 		 * gets the node type
 		 **/

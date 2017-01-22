@@ -22,64 +22,27 @@ TestScene::~TestScene(void)
 void TestScene::Load()
 {
 	SceneNode::Load();
+	VertexBufferObjectWithSubData * lsubData = new VertexBufferObjectWithSubData();
+	VertexElementBuffer * lVertexArray = WaveFrontLoad::Load("assets/Teapot.obj",lsubData);
 
-	if(!this->mSmokeEngine->mShaderSourceStorage->IsSourceUsed("PhongShading",GL_FRAGMENT_SHADER))
-		this->mSmokeEngine->mShaderSourceStorage->AppendSource("PhongShading",new Source("assets/phongshading.fs"));
-	if(!this->mSmokeEngine->mShaderSourceStorage->IsSourceUsed("BasicVertex",GL_VERTEX_SHADER))
-		this->mSmokeEngine->mShaderSourceStorage->AppendSource("BasicVertex",new Source("assets/basic.vs"));
-	
-	if(!this->mSmokeEngine->mVertexBufferStorage->IsVertexArrayObjectExist("Teapot") || !this->mSmokeEngine->mVertexBufferStorage->IsVertexObjectWithSubDataExist("Teapot"))
-	{
-		VertexBufferObjectWithSubData * lsubData = new VertexBufferObjectWithSubData();
-		VertexElementBuffer * lVertexArray = WaveFrontLoad::Load("assets/Teapot.obj",lsubData);
-		this->mSmokeEngine->mVertexBufferStorage->AppendVertexObject("Teapot",lsubData);
-		this->mSmokeEngine->mVertexBufferStorage->AppendVertexObject("Teapot",lVertexArray);
-	}
+	Model* lmodel = new Model(this,lsubData, lVertexArray, new Source("assets/basic.vs"), new Source("assets/phongshading.fs"));
+	lmodel->mShader->SetTexture("in_BaseImage",new Texture("assets/test-pattern.png"),0);
 
-
-	if(!this->mSmokeEngine->mTextureStorage->IsTextureUsed("assets/test-pattern.png"))
-	this->mSmokeEngine->mTextureStorage->AppendTexture( new Texture("assets/test-pattern.png"));
-
-
+	_lightNode = new Node("Light");
+	_testObject = new ObjectNode("test");
+	this->mRootSceneNode->AppendNode(_testObject);
+	this->mRootSceneNode->AppendNode(_lightNode);
+	_testObject->SetRenderObject(lmodel,true);
 }
 
 void TestScene::UnLoad()
 {
 	SceneNode::UnLoad();
-
-	this->mSmokeEngine->mShaderSourceStorage->DeleteSource("PhongShading",GL_FRAGMENT_SHADER);
-	this->mSmokeEngine->mShaderSourceStorage->DeleteSource("BasicVertex",GL_VERTEX_SHADER);
-
-	this->mSmokeEngine->mVertexBufferStorage->DeleteVertexArryObject("Teapot");
-	this->mSmokeEngine->mVertexBufferStorage->DeleteVertexObjectWithSubData("Teapot");
-
-	this->mSmokeEngine->mTextureStorage->DeleteTexture("test-pattern.png");
 }
 
-void TestScene::InintalizeScene()
+void TestScene::Initialize()
 {
-	Model* lmodel = new Model(this,
-		this->mSmokeEngine->mVertexBufferStorage->GetVertexObjectWithSubData("Teapot"),
-		this->mSmokeEngine->mVertexBufferStorage->GetVertexArryObject("Teapot"),
-		this->mSmokeEngine->mShaderSourceStorage->GetSource("BasicVertex",GL_VERTEX_SHADER) ,
-		this->mSmokeEngine->mShaderSourceStorage->GetSource("PhongShading",GL_FRAGMENT_SHADER));
-	lmodel->mShader->SetTexture("in_BaseImage",this->mSmokeEngine->mTextureStorage->GetTexture("assets/test-pattern.png"),0);
-
-	Sprite* sp = new Sprite(this,this->mSmokeEngine->mTextureStorage->GetTexture("assets/test-pattern.png"));
-
-	_testObject->SetRenderObject(lmodel,true);
-
-}
-
-void TestScene::Inintalize()
-{	 
-	_lightNode = new Node("Light");
-
-	_testObject = new ObjectNode("test");
-	this->mRootSceneNode->AppendNode(_testObject);
-	this->mRootSceneNode->AppendNode(_lightNode);
 	_testObject->Position = Vector3f(0,-3,-30);
-
 	x = 0;
 }
 

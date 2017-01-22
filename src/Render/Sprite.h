@@ -60,6 +60,13 @@ class Sprite : public RenderObject
 private:
 	VertexElementBuffer * mVertexArrayObject;
 	SceneNode * _sceneNode;
+
+	Source *_vertexSource;
+	Source *_fragmentSource;
+
+	VertexElementBuffer*_vertexElementbuffer;
+	VertexBufferObjectWithSubData* _vertexObject;
+
 	//sprite intalization
 	void _initialize(SceneNode * sceneNode);
 public:

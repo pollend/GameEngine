@@ -5,9 +5,6 @@ SmokeEngine::SmokeEngine()
 {
 	
 
-	mShaderSourceStorage = new ShaderSourceStorage();
-	mTextureStorage = new TextureStorage();
-	mVertexBufferStorage = new VertexBufferStorage();
 
 	mRenderer = new Renderer();
 	mSceneManager = new SceneManager(this);

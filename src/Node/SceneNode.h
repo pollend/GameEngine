@@ -1,7 +1,6 @@
 #ifndef _SCENE_NODE_H_
 #define _SCENE_NODE_H_
 
-#include <Storage/ViewStorage.h>
 #include <Utility/Camera.h>
 #include "InputEvent.h"
 
@@ -26,7 +25,6 @@ public:
 	//the main camera 
 	Camera * mMainCamera;
 
-	ViewStorage * mViewStorage;
 	RootNode * mRootSceneNode;
 	RootNode * mRootOverlayNode;
 
@@ -40,8 +38,7 @@ public:
 
 	virtual void Load();
 	virtual void UnLoad();
-	virtual void Inintalize() = 0;
-	virtual void InintalizeScene() = 0;
+	virtual void Initialize() = 0;
 	virtual void Draw(Renderer* renderer) = 0;
 
 	bool IsLoad();
