@@ -7,7 +7,7 @@ ObjectNode::ObjectNode(std::string ID) : Node::Node(ID)
 	_RenderObject = NULL;
 }
 
-Matrix4f ObjectNode::GetMatrix()
+Matrix4f ObjectNode::GetLocalTransform()
 {
 	Matrix4f lscale =  MatrixHelper::Scale(Scale);
 	Matrix4f lrotation = MatrixHelper::FromQuaternion(Rotation);
@@ -36,17 +36,6 @@ RenderObject * ObjectNode::GetRenderObject()
 	return _RenderObject;
 }
 
-void ObjectNode::AddAttchmentNodeCallback(std::string nodeType,AttachmentNodeCallback* attachmentNodeCallback)
-{
-	_attachmentNodeSet[nodeType] = attachmentNodeCallback;
-}
-
-void ObjectNode::RemoveAndDeleteAttachmentNodeCallback(std::string nodeType)
-{
-	AttachmentNodeCallback* cb = _attachmentNodeSet[nodeType];
-	 delete cb;
-	_attachmentNodeSet.erase(nodeType);
-}
 
 std::string ObjectNode::GetType()
 {

@@ -2,9 +2,8 @@
 #include "SharedNodeInfo.h"
 
 
-SceneNode::RootNode::RootNode(SceneNode * sceneNode,SharedNodeInfo* sharedNodeInfo, std::string ID) : Node(ID) 
+SceneNode::RootNode::RootNode(SharedNodeInfo* sharedNodeInfo, std::string ID) : Node(ID)
 {
-	_sceneNode = sceneNode;
 	_sharedNodeInfo = sharedNodeInfo;
 
 }
@@ -13,17 +12,13 @@ std::string SceneNode::RootNode::GetType()
 	return "root_node";
 }
 
-SceneNode::SceneNode(SmokeEngine* smokeEngine,Camera * camera)
+SceneNode::SceneNode(SmokeEngine* smokeEngine)
 {
 	_isLoaded = false;
 
 	_sharedNodeInfo = new SharedNodeInfo();
 
 	mSmokeEngine = smokeEngine;
-
-	mRootSceneNode = new RootNode(this,_sharedNodeInfo,"ROOT_SCENE");
-	mRootOverlayNode  = new RootNode(this,_sharedNodeInfo,"ROOT_OVERLAY");
-	mMainCamera = camera;
 }
 void SceneNode::Load()
 {
@@ -43,7 +38,5 @@ bool SceneNode::IsLoad()
 
 SceneNode::~SceneNode(void)
 {
-	delete(mRootSceneNode);
-	delete(mRootOverlayNode);
 	delete(_sharedNodeInfo);
 }

@@ -7,7 +7,7 @@
 using Eigen::Vector3f;
 using Eigen::Matrix4f;
 using Eigen::Quaternionf;
-class Camera
+class Camera : public Node
 {
 private:
 	Matrix4f _viewMatrix;
@@ -17,9 +17,9 @@ public:
 	Quaternionf Rotation;
 
 
-	Camera(Matrix4f ViewMatrix);
-	Camera(float fov,float aspect, float zNear, float zFar);
-	Camera(float left, float top, float right, float bottom, float zNear,float zFar);
+	Camera(std::string ID,Matrix4f ViewMatrix);
+	Camera(std::string ID,float fov,float aspect, float zNear, float zFar);
+	Camera(std::string ID,float left, float top, float right, float bottom, float zNear,float zFar);
 
 	~Camera(void);
 

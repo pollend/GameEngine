@@ -1,7 +1,7 @@
 #ifndef _SCENE_NODE_H_
 #define _SCENE_NODE_H_
 
-#include <Utility/Camera.h>
+#include <Node/Camera.h>
 #include "InputEvent.h"
 
 class Node;
@@ -18,15 +18,10 @@ protected:
 	class RootNode : public Node
 	{
 		public:
-			RootNode(SceneNode * sceneNode,SharedNodeInfo* sharedNodeInfo, std::string ID);
+			RootNode(SharedNodeInfo* sharedNodeInfo, std::string ID);
 			virtual std::string GetType();
 	};
 public:
-	//the main camera 
-	Camera * mMainCamera;
-
-	RootNode * mRootSceneNode;
-	RootNode * mRootOverlayNode;
 
 	SmokeEngine * mSmokeEngine;
 
@@ -43,7 +38,7 @@ public:
 
 	bool IsLoad();
 
-	SceneNode( SmokeEngine* smokeEngine,Camera * camera);
+	SceneNode( SmokeEngine* smokeEngine);
 	~SceneNode(void);
 };
 

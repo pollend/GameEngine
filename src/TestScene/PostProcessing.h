@@ -12,6 +12,7 @@
 class PostProcessing  : public SceneNode
 {
 private:
+    Camera* _camera;
     ObjectNode * _testObject;
     Node * _lightNode;
     RenderingProcedure* _procedure;
@@ -22,7 +23,7 @@ private:
 public:
 
 
-    PostProcessing(SmokeEngine* smokeEngine,Camera * camera);
+    PostProcessing(SmokeEngine* smokeEngine);
     ~PostProcessing(void);
 
     virtual void Update(float deltaT);

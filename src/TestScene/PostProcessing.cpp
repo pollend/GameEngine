@@ -17,7 +17,7 @@
 using Eigen::Matrix4f;
 using Eigen::Vector3f;
 using Eigen::Quaternionf;
-PostProcessing::PostProcessing(SmokeEngine* smokeEngine,Camera * camera) : SceneNode(smokeEngine,camera)
+PostProcessing::PostProcessing(SmokeEngine* smokeEngine) : SceneNode(smokeEngine)
 {
 
 
@@ -39,16 +39,16 @@ void PostProcessing::Load()
 
 
     VertexBufferObjectWithSubData * lsubData = new VertexBufferObjectWithSubData();
-    VertexElementBuffer * lVertexArray = WaveFrontLoad::Load("assets/Teapot.obj",lsubData);
+    VertexElementBuffer * lVertexArray = WaveFrontLoad::Load("assets/drag.obj",lsubData);
 
     Model* lmodel = new Model(this,lsubData, lVertexArray, new Source("assets/basic.vs"), new Source("assets/phongshading.fs"));
     lmodel->mShader->SetTexture("in_BaseImage",new Texture("assets/test-pattern.png"),0);
 
     _lightNode = new Node("Light");
     _testObject = new ObjectNode("test");
-    this->mRootSceneNode->AppendNode(_testObject);
-    this->mRootSceneNode->AppendNode(_lightNode);
     _testObject->SetRenderObject(lmodel,true);
+
+    _camera = new Camera("Main",3.14f/2.0f,1,.5f,20);
 }
 
 void PostProcessing::UnLoad()
@@ -67,7 +67,6 @@ void PostProcessing::Initialize()
 void PostProcessing::Update(float deltaT)
 {
 
-    Matrix4f t = this->mMainCamera->GetTransformMatrixRelativeToNode(_lightNode);
     x += (deltaT);
     //this->mMainCamera->Position = Vector3(sin(x) * 5,0,0);
     _lightNode->Position = Vector3f( 100,0,0);
@@ -76,11 +75,11 @@ void PostProcessing::Update(float deltaT)
 }
 
 void PostProcessing::Draw(Renderer *renderer) {
-    _testObject->GetRenderObject()->mShader->SetMatrix4x4("in_light",this->mMainCamera->GetTransformMatrixRelativeToNode(_lightNode));
+    _testObject->GetRenderObject()->mShader->SetMatrix4x4("in_light",_camera->GetTransformMatrixRelativeToNode(_lightNode));
 
 
     renderer->ChangeRenderTarget(_buffer);
-    renderer->DrawNode(_testObject,mMainCamera);
+    renderer->DrawNode(_testObject,_camera);
     renderer->UnbindRenderTarget();
     _procedure->Draw();
 

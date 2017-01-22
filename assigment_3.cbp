@@ -121,6 +121,12 @@
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/AttachmentNode/LightAttachmentNode.h">
          <Option target="app"/>
       </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/Camera.cpp">
+         <Option target="app"/>
+      </Unit>
+      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/Camera.h">
+         <Option target="app"/>
+      </Unit>
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Node/InputEvent.cpp">
          <Option target="app"/>
       </Unit>
@@ -223,22 +229,10 @@
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/BoundedBox.h">
          <Option target="app"/>
       </Unit>
-      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Camera.cpp">
-         <Option target="app"/>
-      </Unit>
-      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Camera.h">
-         <Option target="app"/>
-      </Unit>
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixHelper.cpp">
          <Option target="app"/>
       </Unit>
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixHelper.h">
-         <Option target="app"/>
-      </Unit>
-      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixStack.cpp">
-         <Option target="app"/>
-      </Unit>
-      <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/Matrix/MatrixStack.h">
          <Option target="app"/>
       </Unit>
       <Unit filename="/home/michaelpollind/Desktop/SmokeEngine/src/Utility/S_Rectangle.cpp">

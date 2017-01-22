@@ -10,12 +10,10 @@ using Eigen::Vector3f;
 using Eigen::Matrix4f;
 
 class RenderObject;
-class AttachmentNodeCallback;
 class AttachmentNode;
 class ObjectNode : public Node
 {
 private:
-	std::map<std::string, AttachmentNodeCallback *> _attachmentNodeSet;
 	RenderObject * _RenderObject;
 public:
 	//the origin of the object for the given item
@@ -32,18 +30,8 @@ public:
 	/**
 	*returns the matrix of the object
 	**/
-	virtual Matrix4f GetMatrix();
+	virtual Matrix4f GetLocalTransform();
 
-	/**
-	*adds the attachment node callback to the object node
-	**/
-	void AddAttchmentNodeCallback(std::string nodeType,AttachmentNodeCallback* attachmentNodeCallback);
-
-	/**
-	*removes the attachment node from the callback based on the type
-	**/
-	void RemoveAndDeleteAttachmentNodeCallback(std::string nodeType);
-	
 	/**
 	*updates the object node
 	**/

@@ -25,7 +25,7 @@ void Renderer::Clear() {
 //
 //void Renderer::Draw(SceneNode* scene)
 //{
-//	_matrixStack.Push(scene->mMainCamera->GetMatrix());
+//	_matrixStack.Push(scene->mMainCamera->GetLocalTransform());
 //	DrawNode(scene->mRootSceneNode,scene);
 //	_matrixStack.Pop();
 //	//DrawNode(scene->mRootOverlayNode);
@@ -58,7 +58,7 @@ void Renderer::DrawNode(Node* node,Camera* camera)
 //{
 //	for(std::list<Node*>::iterator iter = n->GetChildren()->begin(); iter !=  n->GetChildren()->end();++iter)
 //	{
-//		_matrixStack.Push((*iter)->GetMatrix());
+//		_matrixStack.Push((*iter)->GetLocalTransform());
 //		if((*iter)->GetType() == "object_node")
 //		{
 //			static_cast<ObjectNode*>((*iter))->Draw(_matrixStack.GetTransformMatrix(),scene->mMainCamera->GetViewMatrix());

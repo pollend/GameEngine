@@ -15,7 +15,7 @@
 using Eigen::Matrix4f;
 using Eigen::Vector3f;
 using Eigen::Quaternionf;
-JulianSet::JulianSet(SmokeEngine* smokeEngine,Camera * camera) : SceneNode(smokeEngine,camera)
+JulianSet::JulianSet(SmokeEngine* smokeEngine) : SceneNode(smokeEngine)
 {
 
 

@@ -2,6 +2,7 @@
 #include "Render/Model.h"
 #include <boost/log/trivial.hpp>
 
+
 Model::Model(SceneNode* sceneNode,VertexBufferObjectWithSubData* vertexBufferObject,VertexElementBuffer* vertexArrayObject,Source* vertexSource, Source* Fragmentsource) : RenderObject(sceneNode)
 {
 	vertexBufferObject->IntalizeBuffer();

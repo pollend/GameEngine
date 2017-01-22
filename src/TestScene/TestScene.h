@@ -9,12 +9,12 @@ class TestScene : public SceneNode
 private:
     ObjectNode * _testObject;
     Node * _lightNode;
-
+    Camera* _camera;
     float x;
 public:
 
 
-    TestScene(SmokeEngine* smokeEngine,Camera * camera);
+    TestScene(SmokeEngine* smokeEngine);
     ~TestScene(void);
 
     virtual void Update(float deltaT);

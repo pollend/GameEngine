@@ -1,9 +1,8 @@
-#include "Utility/Camera.h"
+#include "Camera.h"
 #include "math.h"
-#include "Utility/Matrix/MatrixStack.h"
 #include "Utility/Matrix/MatrixHelper.h"
 
-Camera::Camera(Matrix4f ViewMatrix)
+Camera::Camera(std::string ID,Matrix4f ViewMatrix) : Node::Node(ID)
 {
 	_viewMatrix= ViewMatrix;
 
@@ -11,7 +10,7 @@ Camera::Camera(Matrix4f ViewMatrix)
 	Rotation  = Quaternionf();
 }
 
-Camera::Camera(float fov,float aspect, float zNear, float zFar)
+Camera::Camera(std::string ID,float fov,float aspect, float zNear, float zFar) : Node::Node(ID)
 {
 	double lh = 1.0f/tan(fov/2.0f);
 	_viewMatrix = Matrix4f();
@@ -25,7 +24,7 @@ Camera::Camera(float fov,float aspect, float zNear, float zFar)
 	Rotation  = Quaternionf();
 }
 
-Camera::Camera(float left, float top, float right, float bottom, float zNear,float zFar)
+Camera::Camera(std::string ID,float left, float top, float right, float bottom, float zNear,float zFar) : Node::Node(ID)
 {
 	_viewMatrix = Matrix4f();
 	_viewMatrix << (2.0f/(right-left)),0,0,-((right+left)/(right-left)),
@@ -52,15 +51,8 @@ Matrix4f Camera::GetMatrix()
 
 Matrix4f Camera::GetTransformMatrixRelativeToNode(Node * node)
 {
-	MatrixStack lstack = MatrixStack();
-	Node * lnode = node;
-	while(lnode != NULL)
-	{
-		lstack.Push(lnode->GetMatrix());
-		lnode = lnode->GetParent();
-	}
-	lstack.Push(GetMatrix());
-	return lstack.GetReverseTransformMatrix();
+
+	return node->GetTransformation() * GetMatrix();;
 }
 
 Matrix4f Camera::GetViewMatrix()

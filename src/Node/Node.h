@@ -22,14 +22,10 @@ class Node
 
 		std::string _id;
 
-		//the children nodes related to the set
-		std::list<Node*>* _children;
-
 		//list of all the nodes in a scene. used for the scenemanager
 		SharedNodeInfo* _sharedNodeInfo;
 
 		Node * _parentNode;
-		SceneNode * _sceneNode;
 
 		virtual void _onNodeAppend();
 	
@@ -47,7 +43,7 @@ class Node
 		/**
 		 * retrieves the matrix for the object
 		 **/
-		virtual Matrix4f GetMatrix();
+		virtual Matrix4f GetLocalTransform();
 
 		/**
 		 * retrieves the ID of the node
@@ -57,33 +53,12 @@ class Node
 		/**
 		 * appends a node to the set
 		 **/
-		virtual void AppendNode(Node * n);
+		virtual void SetParent(Node *n);
 
-		/**
-		 * retrieves all the children nodes to the current node
-		 **/
-		std::list<Node*>* GetChildren();
-		
 		/**
 		 *retrieves the parent node of the current node
 		 **/
 		Node* GetParent();
-
-		/**
-		*deletes the child
-		**/
-		void DeleteChild(std::string id);
-
-		
-		/**
-		 * retrieves the node with the id connected to the current
-		 **/
-		Node* GetNode(std::string id);
-
-		/**
-		 * delete's all the children nodes
-		 **/
-		void DeleteAllChildren();
 
 
 		/**

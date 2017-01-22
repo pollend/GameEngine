@@ -10,7 +10,6 @@ SmokeEngine * engine;
 
 
 void display();
-void init();
 void reshape(GLint width, GLint height);
 void updateGame();
 // Initializes GLUT, the display mode, and main window; registers callbacks;
@@ -20,10 +19,16 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowPosition(80, 80);
 	glutInitWindowSize((GLint)1280, (GLint)720);
-    glutCreateWindow("Teapot");
-	init();
-	glutReshapeFunc(reshape);
+	glutCreateWindow("Teapot");
 
+	glewInit();
+	engine = new SmokeEngine();
+	engine->SetSize(1280,720);
+
+	engine->mSceneManager->AppendScene("main",new PostProcessing(engine));
+	engine->mSceneManager->SetActiveScene("main");
+
+	glutReshapeFunc(reshape);
 	glutIdleFunc(updateGame);
 	glutDisplayFunc(display);
 	glutMainLoop();
@@ -33,21 +38,6 @@ void updateGame()
 {
 	engine->Step();
 }
-
-
-// Initialize the application.
-void init() {
-	glewInit();
-	engine = new SmokeEngine();
-    engine->SetSize(1280,720);
-
-   // engine->mSceneManager->AppendScene("main",new TestScene(engine,new Camera(3.14f/2.0f,1,.5f,20)));
-	engine->mSceneManager->AppendScene("main",new PostProcessing(engine,new Camera(3.14f/2.0f,1,.5f,20)));
-	//engine->mSceneManager->AppendScene("main",new JulianSet(engine,new Camera(3.14f/2.0f,1,.5f,20)));
-	engine->mSceneManager->SetActiveScene("main");
-
-}
-
 
 
 

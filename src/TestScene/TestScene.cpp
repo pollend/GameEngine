@@ -9,7 +9,7 @@
 using Eigen::Matrix4f;
 using Eigen::Vector3f;
 using Eigen::Quaternionf;
-TestScene::TestScene(SmokeEngine* smokeEngine,Camera * camera) : SceneNode(smokeEngine,camera)
+TestScene::TestScene(SmokeEngine* smokeEngine) : SceneNode(smokeEngine)
 {
 
 
@@ -30,9 +30,10 @@ void TestScene::Load()
 
 	_lightNode = new Node("Light");
 	_testObject = new ObjectNode("test");
-	this->mRootSceneNode->AppendNode(_testObject);
-	this->mRootSceneNode->AppendNode(_lightNode);
 	_testObject->SetRenderObject(lmodel,true);
+
+
+	_camera = new Camera("Main",3.14f/2.0f,1,.5f,20);
 }
 
 void TestScene::UnLoad()
@@ -48,9 +49,9 @@ void TestScene::Initialize()
 
 void TestScene::Update(float deltaT) 
 {
-	_testObject->GetRenderObject()->mShader->SetMatrix4x4("in_light",this->mMainCamera->GetTransformMatrixRelativeToNode(_lightNode));
+	_testObject->GetRenderObject()->mShader->SetMatrix4x4("in_light",_camera->GetTransformMatrixRelativeToNode(_lightNode));
 
-	Matrix4f t = this->mMainCamera->GetTransformMatrixRelativeToNode(_lightNode);
+	Matrix4f t = _camera->GetTransformMatrixRelativeToNode(_lightNode);
 	x += (deltaT);
 	//this->mMainCamera->Position = Vector3(sin(x) * 5,0,0);
 	_lightNode->Position = Vector3f( 100,0,0);
@@ -60,7 +61,7 @@ void TestScene::Update(float deltaT)
 }
 
 void TestScene::Draw(Renderer *renderer) {
-	renderer->DrawNode(_testObject,mMainCamera);
+	renderer->DrawNode(_testObject,_camera);
 
 }
 

@@ -14,12 +14,11 @@
 class JulianSet : public SceneNode
 {
 private:
-
     RenderingProcedure* _procedure;
 public:
 
 
-    JulianSet(SmokeEngine* smokeEngine,Camera * camera);
+    JulianSet(SmokeEngine* smokeEngine);
     ~JulianSet(void);
 
     virtual void Update(float deltaT);
