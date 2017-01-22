@@ -2,7 +2,7 @@
 // Created by michaelpollind on 1/20/17.
 //
 
-#include "TestScene/PostProcessing.h"
+#include "PostProcessing.h"
 
 
 #include <Render/Sprite.h>

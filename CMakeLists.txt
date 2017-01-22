@@ -1,86 +1,49 @@
 cmake_minimum_required(VERSION 3.4)
+project(SmokeEngine)
+set(SMOKE_ENGINE_VERSION "0.0.1")
 
-project(assigment_3)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+include(CMakePackageConfigHelpers)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall ")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall")
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-#########################################################
-# FIND BOOST
-#########################################################
-ADD_DEFINITIONS(-DBOOST_LOG_DYN_LINK)
-FIND_PACKAGE(Boost COMPONENTS log REQUIRED)
-#########################################################
-# FIND GLUT
-#########################################################
-find_package(GLUT REQUIRED)
-include_directories(${GLUT_INCLUDE_DIRS})
-link_directories(${GLUT_LIBRARY_DIRS})
-add_definitions(${GLUT_DEFINITIONS} )
-if(NOT GLUT_FOUND)
-    message(ERROR " GLUT not found!")
-endif(NOT GLUT_FOUND)
-#########################################################
-# FIND OPENGL
-#########################################################
-find_package(OpenGL REQUIRED)
-include_directories(${OpenGL_INCLUDE_DIRS})
-link_directories(${OpenGL_LIBRARY_DIRS})
-add_definitions(${OpenGL_DEFINITIONS})
-if(NOT OPENGL_FOUND)
-    message(ERROR " OPENGL not found!")
-endif(NOT OPENGL_FOUND)
-
-#########################################################
-# FIND GLEW
-#########################################################
-find_package(GLEW REQUIRED)
-link_libraries(${GLEW_LIBRARIES})
-include_directories(${GLEW_INCLUDE_DIRS})
-if (NOT GLEW_FOUND)
-    message(ERROR " GLEW not found!")
+# Offer the user the choice of overriding the installation directories
+set(INSTALL_LIB_DIR lib/SmokeEngine CACHE PATH "Installation directory for libraries")
+set(INSTALL_BIN_DIR bin/SmokeEngine CACHE PATH "Installation directory for executables")
+set(INSTALL_INCLUDE_DIR include/SmokeEngine CACHE PATH "Installation directory for header files")
+if(WIN32 AND NOT CYGWIN)
+    set(DEF_INSTALL_CMAKE_DIR CMake)
+else()
+    set(DEF_INSTALL_CMAKE_DIR lib/cmake/SmokeEngine)
 endif()
-#########################################################
-# Find Threads
-#########################################################
+set(INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH "Installation directory for CMake files")
+add_subdirectory(src)
 
-find_package (Threads)
-if (NOT Threads_FOUND)
-    message(ERROR " GLEW not found!")
-endif()
+export(PACKAGE SmokeEngine)
 
-#########################################################
-# Find Eigen
-#########################################################
-find_package( Eigen3 REQUIRED )
-IF( NOT EIGEN3_INCLUDE_DIR )
-    MESSAGE( FATAL_ERROR "Please point the environment variable EIGEN3_INCLUDE_DIR to the include directory of your Eigen3 installation.")
-ENDIF()
-include_directories ( "${EIGEN3_INCLUDE_DIR}" )
+export(TARGETS SmokeEngine FILE "${PROJECT_BINARY_DIR}/SmokeEngineTargets.cmake")
 
-#########################################################
-# Include Files
-#########################################################
+# ... for the build tree
+set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}")
+configure_file(cmake/SmokeEngineConfig.cmake.in
+        "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/SmokeEngineConfig.cmake" @ONLY)
 
-include_directories(${Boost_INCLUDE_DIR})
-include_directories(src/include)
-# include_directories(lib/qvm/include)
-include_directories(lib/lodepng)
-include_directories(lib/tinyobjloader)
+# ... for the install tree
+set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}")
+configure_file(cmake/SmokeEngineConfig.cmake.in
+        "${PROJECT_BINARY_DIR}/SmokeEngineConfig.cmake" @ONLY)
 
-file(COPY assets DESTINATION bin)
+# ... for both
+configure_file(cmake/SmokeEngineConfigVersion.cmake.in "${PROJECT_BINARY_DIR}/SmokeEngineConfigVersion.cmake" @ONLY)
 
-FILE(GLOB_RECURSE SRC "src/source/*.cpp" )
-FILE(GLOB LODEPNG "lib/lodepng/lodepng.h" "lib/lodepng/lodepng.cpp")
-FILE(GLOB TINY_OBJ_LOADER "lib/tinyobjloader/tiny_obj_loader.h" "lib/tinyobjloader/tiny_obj_loader.cc")
 
-MESSAGE(source files: "${SRC} ${HEADER}")
+# Install the FooBarConfig.cmake and FooBarConfigVersion.cmake
+install(FILES
+        "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/SmokeEngineConfig.cmake"
+        "${PROJECT_BINARY_DIR}/SmokeEngineConfigVersion.cmake"
+        DESTINATION "${INSTALL_CMAKE_DIR}" COMPONENT dev)
 
-add_library(SmokeEngine SHARED ${SRC} ${LODEPNG} ${TINY_OBJ_LOADER} Examples/PostProcessing/PostProcessingDemo.cpp Examples/PostProcessing/ExampleSceneOne.cpp Examples/PostProcessing/ExampleSceneOne.h)
-#add_executable(app ./app/app.cpp ${SRC} ${LODEPNG} ${TINY_OBJ_LOADER})
-#target_link_libraries (app ${Boost_LOG_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
+install(EXPORT SmokeEngineTargets DESTINATION "${INSTALL_CMAKE_DIR}" COMPONENT dev)

@@ -1,5 +1,5 @@
 #include <Render/Sprite.h>
-#include "TestScene/TestScene.h"
+#include "TestScene.h"
 #include "Render/Model.h"
 #include "Utility/WaveFrontLoad.h"
 #include "SmokeEngine.h"

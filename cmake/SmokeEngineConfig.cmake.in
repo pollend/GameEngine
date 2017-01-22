@@ -1,0 +1,16 @@
+# - Config file for the SmokeEngine package
+# It defines the following variables
+#  SMOKE_ENGINE_INCLUDE_DIRS - include directories for FooBar
+#  SMOKE_ENGINE_LIBRARIES    - libraries to link against
+
+# Compute paths
+get_filename_component(SMOKE_ENGINE_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+set(SMOKE_ENGINE_INCLUDE_DIRS "@CONF_INCLUDE_DIRS@")
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+if(NOT TARGET SmokeEngine AND NOT SmokeEngine_BINARY_DIR)
+  include("${SMOKE_ENGINE_CMAKE_DIR}/SmokeEngineTargets.cmake")
+endif()
+
+# These are IMPORTED targets created by SmokeEngineTargets.cmake
+set(SMOKE_ENGINE_LIBRARIES SmokeEngine)

@@ -5,7 +5,7 @@
 #define _POSTPROCESSING_H
 #include <Node/ObjectNode.h>
 #include <Render/RenderingProcedure/RenderingProcedure.h>
-#include "Node/SceneNode.h"
+#include <Node/SceneNode.h>
 #include <Render/Framebuffers/Framebuffer.h>
 #include <Render/Model.h>
 

@@ -5,7 +5,10 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 #include <SmokeEngine.h>
-#include "JulianSet.h"
+#include "src/JulianSet.h"
+#include "src/PostProcessing.h"
+#include "src/TestScene.h"
+
 
 
 SmokeEngine * engine;
@@ -27,8 +30,8 @@ int main(int argc, char** argv) {
     engine = new SmokeEngine();
     engine->SetSize(1280,720);
 
-    //engine->mSceneManager->AppendScene("main",new PostProcessing(engine));
-    engine->mSceneManager->AppendScene("main",new JulianSet(engine));
+    engine->mSceneManager->AppendScene("main",new PostProcessing(engine));
+    //engine->mSceneManager->AppendScene("main",new JulianSet(engine));
 
     engine->mSceneManager->SetActiveScene("main");
 

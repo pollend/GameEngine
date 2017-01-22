@@ -1,9 +1,9 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 #include <include/SmokeEngine.h>
-#include <TestScene/TestScene.h>
-#include "../Examples/PostProcessing/JulianSet.h"
-#include <TestScene/PostProcessing.h>
+#include "../Examples/PostProcessing/src/TestScene.h"
+#include "../Examples/PostProcessing/src/JulianSet.h"
+#include "../Examples/PostProcessing/src/PostProcessing.h"
 
 
 SmokeEngine * engine;
