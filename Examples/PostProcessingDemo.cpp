@@ -22,8 +22,10 @@ void updateGame();
 int main(int argc, char** argv) {
     engine = new SmokeEngine();
     engine->CreateWindowContext();
-    engine->mSceneManager->AppendScene("main",new PostProcessing(engine));
-    engine->mSceneManager->SetActiveScene("main");
+    engine->mSceneManager->AppendScene("post_processing",new PostProcessing(engine));
+    engine->mSceneManager->AppendScene("julian_set",new JulianSet(engine));
+    engine->mSceneManager->AppendScene("texture_mapping",new TestScene(engine));
+    engine->mSceneManager->SetActiveScene("texture_mapping");
     engine->Step();
     return 0;
 }

@@ -5,6 +5,7 @@
 #include "SmokeEngine.h"
 #include <Eigen/Dense>
 #include "Utility/Matrix/MatrixHelper.h"
+#include "SceneImgui.h"
 
 using Eigen::Matrix4f;
 using Eigen::Vector3f;
@@ -49,6 +50,8 @@ void TestScene::Initialize()
 
 void TestScene::Update(float deltaT) 
 {
+	SceneImgui::SceneSelect(this->mSmokeEngine);
+
 	_testObject->GetRenderObject()->mShader->SetMatrix4x4("in_light",_camera->GetTransformMatrixRelativeToNode(_lightNode));
 
 	Matrix4f t = _camera->GetTransformMatrixRelativeToNode(_lightNode);
@@ -61,6 +64,7 @@ void TestScene::Update(float deltaT)
 }
 
 void TestScene::Draw(Renderer *renderer) {
+
 	renderer->DrawNode(_testObject,_camera);
 
 }

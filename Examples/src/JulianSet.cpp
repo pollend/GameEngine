@@ -9,7 +9,7 @@
 #include "SmokeEngine.h"
 #include <Eigen/Dense>
 #include "Utility/Matrix/MatrixHelper.h"
-
+#include "SceneImgui.h"
 #include <boost/array.hpp>
 
 using Eigen::Matrix4f;
@@ -44,7 +44,7 @@ void JulianSet::UnLoad()
 
 void JulianSet::Update(float deltaT)
 {
-
+    SceneImgui::SceneSelect(this->mSmokeEngine);
 
 }
 

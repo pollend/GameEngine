@@ -74,6 +74,7 @@ VertexElementBuffer* WaveFrontLoad::Load(const char* path, VertexBufferObjectWit
         delete(lbuffer);
         return NULL;
     }
+    file.close();
 
 
 

@@ -38,7 +38,7 @@ FILE(GLOB IMGUI
 add_library(SmokeEngine SHARED
         ${ROOT_SOURCE}          ${NODE_HEADER}    ${RENDERER_HEADER} ${NODE_HEADER}
         ${VERTEX_OBJECT_HEADER} ${UTILITY_HEADER} ${LODEPNG}         ${TINY_OBJ_LOADER}
-        ${ROOT_INCLUDE_HEADER} ${IMGUI} include/imgui_impl_glfw_gl3.h source/imgui_impl_glfw_gl3.cpp.cpp)
+        ${ROOT_INCLUDE_HEADER} ${IMGUI} )
 
 install(TARGETS SmokeEngine EXPORT SmokeEngineTargets LIBRARY DESTINATION ${INSTALL_LIB_DIR})
 
