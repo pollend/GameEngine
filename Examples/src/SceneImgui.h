@@ -12,12 +12,12 @@ class SceneImgui{
 public:
     static void SceneSelect(SmokeEngine* smokeEngine)
     {
-        ImGui::TreePush("Scenes");
-        if(ImGui::Button("Texture Mapping")) smokeEngine->mSceneManager->SetActiveScene("texture_mapping");
-        if(ImGui::Button("Julian Set")) smokeEngine->mSceneManager->SetActiveScene("julian_set");
-        if(ImGui::Button("Post Processing")) smokeEngine->mSceneManager->SetActiveScene("post_processing");
-        ImGui::TreePop();
-
+        if(ImGui:: CollapsingHeader("Scenes")) {
+            //if (ImGui::Button("Texture Mapping")) smokeEngine->mSceneManager->SetActiveScene("texture_mapping");
+            if (ImGui::Button("Julian Set")) smokeEngine->mSceneManager->SetActiveScene("julian_set");
+            if (ImGui::Button("Post Processing")) smokeEngine->mSceneManager->SetActiveScene("post_processing");
+            if (ImGui::Button("Vertex Effects")) smokeEngine->mSceneManager->SetActiveScene("vs_effects");
+        }
     }
 
 };

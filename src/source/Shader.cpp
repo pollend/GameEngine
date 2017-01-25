@@ -53,6 +53,7 @@ void Shader::IntalizeShader()
 
 void Shader::SetAttrib(int index, const GLchar* attrib)
 {
+	//_useShader();
 	glBindAttribLocation(_shaderProgram,index,attrib);
 }
 

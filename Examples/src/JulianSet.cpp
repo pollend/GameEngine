@@ -44,6 +44,9 @@ void JulianSet::UnLoad()
 
 void JulianSet::Update(float deltaT)
 {
+    static float shift = -0.550f;
+    ImGui::SliderFloat("index", &shift, -1.0f, 1.0f);
+    _procedure->GetShader()->SetUniform1("in_shift",shift);
     SceneImgui::SceneSelect(this->mSmokeEngine);
 
 }

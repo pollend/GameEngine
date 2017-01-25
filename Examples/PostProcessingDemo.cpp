@@ -8,7 +8,7 @@
 #include "src/JulianSet.h"
 #include "src/PostProcessing.h"
 #include "src/TestScene.h"
-
+#include "src/VertexBallon.h"
 
 
 SmokeEngine * engine;
@@ -24,8 +24,9 @@ int main(int argc, char** argv) {
     engine->CreateWindowContext();
     engine->mSceneManager->AppendScene("post_processing",new PostProcessing(engine));
     engine->mSceneManager->AppendScene("julian_set",new JulianSet(engine));
-    engine->mSceneManager->AppendScene("texture_mapping",new TestScene(engine));
-    engine->mSceneManager->SetActiveScene("texture_mapping");
+    //engine->mSceneManager->AppendScene("texture_mapping",new TestScene(engine));
+    engine->mSceneManager->AppendScene("vs_effects",new VertexBallon(engine));
+    engine->mSceneManager->SetActiveScene("post_processing");
     engine->Step();
     return 0;
 }

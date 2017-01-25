@@ -25,8 +25,8 @@ Model::Model(SceneNode* sceneNode,VertexBufferObjectWithSubData* vertexBufferObj
 			mShader->SetAttrib(x,"in_TexCoords");
 		}
 	}
+    mShader->IntalizeShader();
 
-	mShader->IntalizeShader();
 
 	mShader->SetMatrix4x4("in_Transform",Matrix4f::Identity());
 	mShader->SetMatrix4x4("in_View",Matrix4f::Identity());

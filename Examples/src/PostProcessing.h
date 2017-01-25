@@ -9,16 +9,25 @@
 #include <Render/Framebuffers/Framebuffer.h>
 #include <Render/Model.h>
 
+enum ProcessingType{
+    DESYNC,
+    GRAYSCALE,
+    GRAYSCALE_1
+};
+
 class PostProcessing  : public SceneNode
 {
 private:
     Camera* _camera;
     ObjectNode * _testObject;
+    ObjectNode* _teapot;
     Node * _lightNode;
-    RenderingProcedure* _procedure;
+    RenderingProcedure* _rgbDesyncProcedure;
+    RenderingProcedure* _grayScaleProcedure;
     Texture* _frame;
     Framebuffer* _buffer;
     Model* _model;
+    ProcessingType _processingType;
     float x;
 public:
 

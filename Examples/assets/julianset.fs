@@ -1,5 +1,6 @@
 uniform sampler2D in_BaseImage;
 varying vec2 p_TexCoords;
+uniform float in_shift;
 
 void main()
 {
@@ -10,8 +11,8 @@ z.y = 4.0 * (p_TexCoords.y - 0.5);
 
 int i;
 for(i=0; i<100; i++) {
-float x = (z.x * z.x - z.y * z.y) + -0.550;
-float y = (z.y * z.x + z.x * z.y) + -0.550;
+float x = (z.x * z.x - z.y * z.y) + in_shift;
+float y = (z.y * z.x + z.x * z.y) + in_shift;
 
 if((x * x + y * y) > 4.0) break;
     z.x = x;
