@@ -35,6 +35,13 @@ endif()
 link_libraries(${GLEW_LIBRARIES})
 include_directories(${GLEW_INCLUDE_DIRS})
 #########################################################
+# FIND GLFW3
+#########################################################
+find_package(glfw3 3.2 REQUIRED)
+link_libraries(${GLFW_LIBRARIES})
+include_directories(${GLFW_INCLUDE_DIRS})
+
+#########################################################
 # Find Threads
 #########################################################
 

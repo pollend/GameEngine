@@ -18,17 +18,28 @@ source_group("Vertex Files" FILES ${VERTEX_OBJECT_HEADER})
 include(Dependencies)
 
 include_directories(include)
-include_directories(../lib/tinyobjloader)
-include_directories(../lib/lodepng)
+include_directories(${PROJECT_SOURCE_DIR}/lib/tinyobjloader)
+include_directories(${PROJECT_SOURCE_DIR}/lib/lodepng)
+include_directories(${PROJECT_SOURCE_DIR}/lib/imgui)
+
 
 FILE(GLOB LODEPNG "${PROJECT_SOURCE_DIR}/lib/lodepng/lodepng.h" "${PROJECT_SOURCE_DIR}/lib/lodepng/lodepng.cpp")
 FILE(GLOB TINY_OBJ_LOADER "${PROJECT_SOURCE_DIR}/lib/tinyobjloader/tiny_obj_loader.h" "${PROJECT_SOURCE_DIR}/lib/tinyobjloader/tiny_obj_loader.cc")
+FILE(GLOB IMGUI
+        "${PROJECT_SOURCE_DIR}/lib/imgui/imgui.h"
+        "${PROJECT_SOURCE_DIR}/lib/imgui/imgui.cpp"
+        "${PROJECT_SOURCE_DIR}/lib/imgui/imconfig.h"
+        "${PROJECT_SOURCE_DIR}/lib/imgui/imgui_draw.cpp"
+        "${PROJECT_SOURCE_DIR}/lib/imgui/imgui_internal.h"
+        "${PROJECT_SOURCE_DIR}/lib/imgui/stb_rect_pack.h"
+        "${PROJECT_SOURCE_DIR}/lib/imgui/stb_textedit.h"
+        "${PROJECT_SOURCE_DIR}/lib/imgui/stb_truetype.h")
 
 
 add_library(SmokeEngine SHARED
         ${ROOT_SOURCE}          ${NODE_HEADER}    ${RENDERER_HEADER} ${NODE_HEADER}
         ${VERTEX_OBJECT_HEADER} ${UTILITY_HEADER} ${LODEPNG}         ${TINY_OBJ_LOADER}
-        ${ROOT_INCLUDE_HEADER} )
+        ${ROOT_INCLUDE_HEADER} ${IMGUI} )
 
 install(TARGETS SmokeEngine EXPORT SmokeEngineTargets LIBRARY DESTINATION ${INSTALL_LIB_DIR})
 

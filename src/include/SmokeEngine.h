@@ -6,15 +6,16 @@
 #include <ctime>
 #include <Render/Renderer.h>
 #include "SceneManager.h"
+#include <GLFW/glfw3.h>
 
 class SmokeEngine
 {
 private:
-	 double _time;
+	GLFWwindow* _window;
+	double _time;
 	int _width;
 	int _height;
 public:
-
 	SceneManager * mSceneManager;
 	Renderer* mRenderer;
 
@@ -24,6 +25,8 @@ public:
 
 	int GetWidth();
 	int GetHeight();
+
+	void CreateWindowContext();
 
 	SmokeEngine();
 	~SmokeEngine(void);

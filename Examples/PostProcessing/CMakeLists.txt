@@ -30,4 +30,4 @@ FILE(GLOB_RECURSE SRC "src/*" )
 
 file(COPY assets DESTINATION bin)
 add_executable(Demo ./PostProcessingDemo.cpp ${SRC})
-target_link_libraries (Demo SmokeEngine ${Boost_LOG_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
+target_link_libraries (Demo SmokeEngine ${Boost_LOG_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} glfw)
