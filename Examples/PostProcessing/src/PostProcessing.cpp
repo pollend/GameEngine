@@ -11,8 +11,8 @@
 #include "SmokeEngine.h"
 #include <Eigen/Dense>
 #include "Utility/Matrix/MatrixHelper.h"
-
 #include <boost/array.hpp>
+#include <SmokeEngine/imgui.h>
 
 using Eigen::Matrix4f;
 using Eigen::Vector3f;
@@ -77,13 +77,15 @@ void PostProcessing::Update(float deltaT)
 
 void PostProcessing::Draw(Renderer *renderer) {
 
+    static float f = 0.0f;
+    ImGui::Text("Hello, world!");
+    //ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
+    //ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
     renderer->ChangeRenderTarget(_buffer);
     renderer->DrawNode(_testObject,_camera);
     renderer->UnbindRenderTarget();
     _procedure->Draw();
-
-
 }
 
 void PostProcessing::Input(InputEvent* Event)

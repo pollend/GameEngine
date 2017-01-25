@@ -35,13 +35,14 @@ FILE(GLOB IMGUI
         "${PROJECT_SOURCE_DIR}/lib/imgui/stb_textedit.h"
         "${PROJECT_SOURCE_DIR}/lib/imgui/stb_truetype.h")
 
-
 add_library(SmokeEngine SHARED
         ${ROOT_SOURCE}          ${NODE_HEADER}    ${RENDERER_HEADER} ${NODE_HEADER}
         ${VERTEX_OBJECT_HEADER} ${UTILITY_HEADER} ${LODEPNG}         ${TINY_OBJ_LOADER}
-        ${ROOT_INCLUDE_HEADER} ${IMGUI} )
+        ${ROOT_INCLUDE_HEADER} ${IMGUI} include/imgui_impl_glfw_gl3.h source/imgui_impl_glfw_gl3.cpp.cpp)
 
 install(TARGETS SmokeEngine EXPORT SmokeEngineTargets LIBRARY DESTINATION ${INSTALL_LIB_DIR})
 
 install(DIRECTORY include/ DESTINATION ${INSTALL_INCLUDE_DIR})
+install(FILES ${IMGUI} DESTINATION ${INSTALL_INCLUDE_DIR})
+
 

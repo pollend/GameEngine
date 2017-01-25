@@ -37,4 +37,5 @@ SmokeEngineTargets.cmake
 #CmakeIn
 SmokeEngine.cmake
 
+.directory
 .idea
