@@ -12,7 +12,8 @@
 enum ProcessingType{
     DESYNC,
     GRAYSCALE,
-    GRAYSCALE_1
+    BLUR,
+    SOBEL
 };
 
 class PostProcessing  : public SceneNode
@@ -24,6 +25,9 @@ private:
     Node * _lightNode;
     RenderingProcedure* _rgbDesyncProcedure;
     RenderingProcedure* _grayScaleProcedure;
+    RenderingProcedure* _blurProcedure;
+    RenderingProcedure* _sobelProcedure;
+
     Texture* _frame;
     Framebuffer* _buffer;
     Model* _model;

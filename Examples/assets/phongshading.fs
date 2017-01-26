@@ -18,4 +18,6 @@ void main()
 
 	float lfinal = ((20.0+8.0)/(8.0*3.14)) * max(dot(p_normals,lhalfangle),0.0);
 	gl_FragColor = texture2D(in_BaseImage,p_TexCoords) * lfinal;
+	//gl_FragColor = vec4(p_normals,1);
+
 }
